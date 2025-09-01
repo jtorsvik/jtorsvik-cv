@@ -43,6 +43,32 @@
       border-top: 1px dashed #aaa;
       margin: 20px 0;
     }
+    .badge-grid {
+      margin-bottom: 40px;
+    }
+
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+    }
+
+    .cert-badge {
+      background-color: #eef2f7;
+      border-left: 4px solid #2c3e50;
+      padding: 12px 16px;
+      font-weight: bold;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .cert-badge span {
+      display: block;
+      font-weight: normal;
+      color: #555;
+      margin-top: 4px;
+      font-size: 0.9em;
+    }
   </style>
 </head>
 <body>
@@ -167,6 +193,23 @@
     <li>Trading</li>
     <li>Micro and Macroeconomics</li>
   </ul>
+</div>
+
+<div class="section badge-grid">
+  <h2>📜 Technical Certifications</h2>
+  <div class="cert-grid">
+    <div class="cert-badge">DASCA: Senior Data Scientist<br><span>Nov. 2024</span></div>
+    <div class="cert-badge">AI-102: Azure AI Engineer<br><span>Feb. 2023</span></div>
+    <div class="cert-badge">AI-900: Azure AI Fundamentals</div>
+    <div class="cert-badge">DP-100: Data Science on Azure<br><span>Sept. 2022</span></div>
+    <div class="cert-badge">Databricks: Data Science Associate<br><span>Mar. 2023</span></div>
+    <div class="cert-badge">Databricks: Data Engineering Associate<br><span>May. 2023</span></div>
+    <div class="cert-badge">DP-203: Azure Data Engineer<br><span>Jun. 2023</span></div>
+    <div class="cert-badge">PL-300: Power BI Analyst<br><span>Dec. 2022</span></div>
+    <div class="cert-badge">AZ-104: Azure Administrator<br><span>Feb. 2023</span></div>
+    <div class="cert-badge">DP-900: Azure Data Fundamentals<br><span>Sept. 2022</span></div>
+    <div class="cert-badge">ITIL 4 Foundation<br><span>Jan. 2023</span></div>
+  </div>
 </div>
 
 </body>
