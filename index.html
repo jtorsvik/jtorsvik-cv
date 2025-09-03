@@ -90,12 +90,14 @@
 </head>
 <body>
 
-<button class="language-switch" onclick="toggleLanguage()" id="langButton">Norsk</button>
+<button class="language-switch" onclick="toggleLanguage()" id="langButton">English</button>
 
 <img src="profile.jpg" alt="Joakim Martin Torsvik" style="width:150px; border-radius:50%; margin-bottom:20px;">
 
 <script>
-let isEnglish = true;
+let isEnglish = false;
+// Initial language setup
+document.addEventListener('DOMContentLoaded', () => toggleLanguage());
 
 const translations = {
     en: {
@@ -270,7 +272,7 @@ const translations = {
             "Trading",
             "Mikro- og Makroøkonomi"
         ]
-    }}
+    }
 };
 
 function toggleLanguage() {
