@@ -69,36 +69,50 @@
       margin-top: 4px;
       font-size: 0.9em;
     }
+    .lang-toggle {
+      position: fixed;
+      top: 18px;
+      right: 18px;
+      background: #2c3e50;
+      color: #fff;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
 
+<button id="langToggle" class="lang-toggle" aria-label="Switch language">🇳🇴 🇬🇧 Norsk</button>
+
 <img src="profile.jpg" alt="Joakim Martin Torsvik" style="width:150px; border-radius:50%; margin-bottom:20px;">
 
-<h1>Joakim Martin Torsvik</h1>
-  <h2>Full-stack Data Scientist & Technical Lead </h2>
-    </h3> Data Scientist - Data Engineer - Data Platform Engineer </h3>
+<h1 data-i18n="name">Joakim Martin Torsvik</h1>
+  <h2 data-i18n="headline">Full-stack Data Scientist & Technical Lead</h2>
+  <h3 data-i18n="subhead">Data Scientist - Data Engineer - Data Platform Engineer</h3>
 <hr>
-<p class="contact">📍 Oslo, Norway — 📞 +47 454 67 412 — ✉️ joakim.torsvik@icloud.com</p>
-<p class="languages">🌐 Norwegian (native) — 🇬🇧 English (fluent) — 🇪🇸 Spanish (B1-level)</p>
+<p class="contact" data-i18n="contact">📍 Oslo, Norway — 📞 +47 454 67 412 — ✉️ joakim.torsvik@icloud.com</p>
+<p class="languages" data-i18n="languages">🌐 Norwegian (native) — 🇬🇧 English (fluent) — 🇪🇸 Spanish (B1-level)</p>
 <hr>
 
 <div class="section">
-  <h2>🛠️ Technical Proficiencies</h2>
+  <h2 data-i18n="tech_title">🛠️ Technical Proficiencies</h2>
   <ul>
-    <li><strong>☁️ Cloud Platforms:</strong> Azure, AWS</li>
-    <li><strong>📊 Big Data & Analytics:</strong> Databricks, HPE Data Fabric, Microsoft Fabric, Power BI, Grafana</li>
-    <li><strong>🐍 Programming:</strong> Python, SQL/T-SQL/KQL, Terraform, Apache Spark, bash, PowerShell, GitHub Actions </li>
-    <li><strong>🧠 Workflow Frameworks: </strong> SCRUM, Kanban, Product Management, MLOps, DevOps, GenAI-Ops</li>
+    <li data-i18n="tech_cloud"><strong>☁️ Cloud Platforms:</strong> Azure, AWS</li>
+    <li data-i18n="tech_bigdata"><strong>📊 Big Data & Analytics:</strong> Databricks, HPE Data Fabric, Microsoft Fabric, Power BI, Grafana</li>
+    <li data-i18n="tech_programming"><strong>🐍 Programming:</strong> Python, SQL/T-SQL/KQL, Terraform, Apache Spark, bash, PowerShell, GitHub Actions</li>
+    <li data-i18n="tech_workflow"><strong>🧠 Workflow Frameworks:</strong> SCRUM, Kanban, Product Management, MLOps, DevOps, GenAI-Ops</li>
   </ul>
 </div>
 
 <div class="section">
-  <h2>💼 Professional Experience</h2>
+  <h2 data-i18n="experience_title">💼 Professional Experience</h2>
 
   <h3>
     <img src="sopra_steria.jpg" alt="Sopra Steria Logo" style="width:60px; vertical-align:middle; margin-right:10px; transition:transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-    Data Scientist Consultant | Sopra Steria | Aug 2022 - November 2023 | Mai 2025 - Present
+    <span data-i18n="sopra_title">Data Scientist Consultant | Sopra Steria | Aug 2022 - November 2023 | Mai 2025 - Present</span>
   </h3>
   
   <div class="role consultant">
@@ -106,28 +120,28 @@
     <hr class="consultant-divider">
 
     <div class="role">
-      <p style="font-style: italic; font-weight: bold; color: #555; margin-left: 30px;">Consultant Role</p>
-      <h4>Solution Architect | Anonymous Client | Aug 2025 - Present</h4>
+      <p style="font-style: italic; font-weight: bold; color: #555; margin-left: 30px;" data-i18n="consultant_role">Consultant Role</p>
+      <h4 data-i18n="solution_arch">Solution Architect | Anonymous Client | Aug 2025 - Present</h4>
       <ul>
-        <li>Architectural design for on-premise Spark cluster implementation</li>
-        <li>Developing secure analytics platform for sensitive data processing</li>
-        <li>Collaborating with cross-functional teams to establish data governance standards</li>
-        <li>Optimizing cluster performance and resource utilization</li>
-        <li>Implementing security protocols and access controls</li>
+        <li data-i18n="arch_1">Architectural design for on-premise Spark cluster implementation</li>
+        <li data-i18n="arch_2">Developing secure analytics platform for sensitive data processing</li>
+        <li data-i18n="arch_3">Collaborating with cross-functional teams to establish data governance standards</li>
+        <li data-i18n="arch_4">Optimizing cluster performance and resource utilization</li>
+        <li data-i18n="arch_5">Implementing security protocols and access controls</li>
       </ul>
     </div>
 
     <div class="role">
       <h4>
-        <p style="font-style: italic; color: #555; margin-left: 30px;">Consultant Role</p>
-        <img src="equinor.jpg" alt="Equinor Logo" style="width:60px; vertical-align:middle; margin-right:10px; transition:transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-        Full-stack Data Scientist | Equinor | Aug 2022 - Nov 2023
+  <p style="font-style: italic; color: #555; margin-left: 30px;" data-i18n="consultant_role">Consultant Role</p>
+  <img src="equinor.jpg" alt="Equinor Logo" style="width:60px; vertical-align:middle; margin-right:10px; transition:transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+  <span data-i18n="equinor_title">Full-stack Data Scientist | Equinor | Aug 2022 - Nov 2023</span>
       </h4>
       <ul>
-        <li>Visualization of IT infrastructure and business data</li>
-        <li>Data pipeline development using Azure Data Factory</li>
-        <li>Data transformation using Python in Databricks</li>
-        <li>Power BI modeling and visualization</li>
+  <li data-i18n="equinor_1">Visualization of IT infrastructure and business data</li>
+  <li data-i18n="equinor_2">Data pipeline development using Azure Data Factory</li>
+  <li data-i18n="equinor_3">Data transformation using Python in Databricks</li>
+  <li data-i18n="equinor_4">Power BI modeling and visualization</li>
       </ul>
     </div>
   </div>
@@ -135,85 +149,266 @@
 
     <h3>
       <img src="bane_nor.jpg" alt="Bane NOR Logo" style="width:60px; vertical-align:middle; margin-right:10px; transition:transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-      Data Scientist | Bane NOR | Nov 2023 - May 2025
+      <span data-i18n="bane_title">Data Scientist | Bane NOR | Nov 2023 - May 2025</span>
     </h3>
     <ul>
-      <li>Specializing in Deep Learning and Computer Vision algorithms</li>
-      <li>Experience with streaming and batch data processing</li>
-      <li>Azure architecture setup and implementation</li>
+      <li data-i18n="bane_1">Specializing in Deep Learning and Computer Vision algorithms</li>
+      <li data-i18n="bane_2">Experience with streaming and batch data processing</li>
+      <li data-i18n="bane_3">Azure architecture setup and implementation</li>
     </ul>
   </div>
 
   <h3>
     <img src="aon.jpg" alt="AON Logo" style="width:60px; vertical-align:middle; margin-right:10px; transition:transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-    Developer | AON Norway AS | Sep 2018 – Jul 2022
+    <span data-i18n="aon_title">Developer | AON Norway AS | Sep 2018 – Jul 2022</span>
   </h3>
   <ul>
-    <li>Microsoft CRM development and administration</li>
-    <li>Internal process optimization</li>
-    <li>Ad-hoc analytics for brokers</li>
+    <li data-i18n="aon_1">Microsoft CRM development and administration</li>
+    <li data-i18n="aon_2">Internal process optimization</li>
+    <li data-i18n="aon_3">Ad-hoc analytics for brokers</li>
   </ul>
 
   <h3>
     <img src="vertikal_helse.jpg" alt="Vertikal Helse Logo" style="width:60px; vertical-align:middle; margin-right:10px; transition:transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-    Financial Assistant | IF/Vertikal Helse | Jul 2017 - Sep 2018
+    <span data-i18n="vertikal_title">Financial Assistant | IF/Vertikal Helse | Jul 2017 - Sep 2018</span>
   </h3>
   <ul>
-    <li>Accounts payable management</li>
-    <li>Customer reimbursement processing</li>
-    <li>Invoice handling</li>
+    <li data-i18n="vertikal_1">Accounts payable management</li>
+    <li data-i18n="vertikal_2">Customer reimbursement processing</li>
+    <li data-i18n="vertikal_3">Invoice handling</li>
   </ul>
 
   <h3>
     <img src="power.jpg" alt="POWER AS Logo" style="width:60px; vertical-align:middle; margin-right:10px; transition:transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-    Part-time Sales Representative | POWER AS | Nov 2014 - Sep 2017
+    <span data-i18n="power_title">Part-time Sales Representative | POWER AS | Nov 2014 - Sep 2017</span>
   </h3>
   <ul>
-    <li>Electronics sales specialist</li>
-    <li>Locations: Expert Drotningsvik (Bergen) and Power Colosseum (Oslo)</li>
+    <li data-i18n="power_1">Electronics sales specialist</li>
+    <li data-i18n="power_2">Locations: Expert Drotningsvik (Bergen) and Power Colosseum (Oslo)</li>
   </ul>
 </div>
 
 <div class="section">
-  <h2>🎓 Education</h2>
+  <h2 data-i18n="education_title">🎓 Education</h2>
 
-  <h3>MSc in Data Science | University of Sussex | 2021 - 2022</h3>
-  <p><strong>Grade Average:</strong> B (65%)</p>
+  <h3 data-i18n="msc_title">MSc in Data Science | University of Sussex | 2021 - 2022</h3>
+  <p><strong data-i18n="grade_label">Grade Average:</strong> <span data-i18n="msc_grade">B (65%)</span></p>
   <ul>
-    <li>Machine Learning</li>
-    <li>Natural Language Processing</li>
-    <li>Computer Vision</li>
-    <li>Data Science techniques</li>
+    <li data-i18n="msc_1">Machine Learning</li>
+    <li data-i18n="msc_2">Natural Language Processing</li>
+    <li data-i18n="msc_3">Computer Vision</li>
+    <li data-i18n="msc_4">Data Science techniques</li>
   </ul>
 
-  <h3>Bachelor in Finance | BI Norwegian Business School | 2015 - 2018</h3>
-  <p><strong>Grade Average:</strong> C</p>
+  <h3 data-i18n="bachelor_title">Bachelor in Finance | BI Norwegian Business School | 2015 - 2018</h3>
+  <p><strong data-i18n="grade_label_b">Grade Average:</strong> <span data-i18n="bachelor_grade">C</span></p>
   <ul>
-    <li>Financial Analytics</li>
-    <li>Corporate Banking</li>
-    <li>Trading</li>
-    <li>Micro and Macroeconomics</li>
+    <li data-i18n="bachelor_1">Financial Analytics</li>
+    <li data-i18n="bachelor_2">Corporate Banking</li>
+    <li data-i18n="bachelor_3">Trading</li>
+    <li data-i18n="bachelor_4">Micro and Macroeconomics</li>
   </ul>
 </div>
 
 <div class="section badge-grid">
-  <h2>📜 Technical Certifications</h2>
+  <h2 data-i18n="certs_title">📜 Technical Certifications</h2>
   <div class="cert-grid">
-    <div class="cert-badge">Terraform Practicioner<br><span>Aug. 2025</span></div>
-    <div class="cert-badge">DASCA: Senior Data Scientist<br><span>Nov. 2024</span></div>
-    <div class="cert-badge">Databricks: Generative AI Engineer<br><span>Mar. 2025</span></div>
-    <div class="cert-badge">Databricks: Data Science Associate<br><span>Mar. 2023</span></div>
-    <div class="cert-badge">Databricks: Data Engineering Associate<br><span>May. 2023</span></div>
-    <div class="cert-badge">AI-102: Azure AI Engineer<br><span>Feb. 2023</span></div>
-    <div class="cert-badge">AI-900: Azure AI Fundamentals<br><span>Jan. 2023</span></div>
-    <div class="cert-badge">DP-100: Data Science on Azure<br><span>Sept. 2022</span></div>
-    <div class="cert-badge">DP-203: Azure Data Engineer<br><span>Jun. 2023</span></div>
-    <div class="cert-badge">PL-300: Power BI Analyst<br><span>Dec. 2022</span></div>
-    <div class="cert-badge">AZ-104: Azure Administrator<br><span>Feb. 2023</span></div>
-    <div class="cert-badge">DP-900: Azure Data Fundamentals<br><span>Sept. 2022</span></div>
-    <div class="cert-badge">ITIL 4 Foundation<br><span>Jan. 2023</span></div>
+    <div class="cert-badge" data-i18n="cert_1">Terraform Practicioner<br><span>Aug. 2025</span></div>
+    <div class="cert-badge" data-i18n="cert_2">DASCA: Senior Data Scientist<br><span>Nov. 2024</span></div>
+    <div class="cert-badge" data-i18n="cert_3">Databricks: Generative AI Engineer<br><span>Mar. 2025</span></div>
+    <div class="cert-badge" data-i18n="cert_4">Databricks: Data Science Associate<br><span>Mar. 2023</span></div>
+    <div class="cert-badge" data-i18n="cert_5">Databricks: Data Engineering Associate<br><span>May. 2023</span></div>
+    <div class="cert-badge" data-i18n="cert_6">AI-102: Azure AI Engineer<br><span>Feb. 2023</span></div>
+    <div class="cert-badge" data-i18n="cert_7">AI-900: Azure AI Fundamentals<br><span>Jan. 2023</span></div>
+    <div class="cert-badge" data-i18n="cert_8">DP-100: Data Science on Azure<br><span>Sept. 2022</span></div>
+    <div class="cert-badge" data-i18n="cert_9">DP-203: Azure Data Engineer<br><span>Jun. 2023</span></div>
+    <div class="cert-badge" data-i18n="cert_10">PL-300: Power BI Analyst<br><span>Dec. 2022</span></div>
+    <div class="cert-badge" data-i18n="cert_11">AZ-104: Azure Administrator<br><span>Feb. 2023</span></div>
+    <div class="cert-badge" data-i18n="cert_12">DP-900: Azure Data Fundamentals<br><span>Sept. 2022</span></div>
+    <div class="cert-badge" data-i18n="cert_13">ITIL 4 Foundation<br><span>Jan. 2023</span></div>
   </div>
 </div>
+
+<script>
+  // Simple i18n translations for English and Norwegian
+  const translations = {
+    en: {
+      name: 'Joakim Martin Torsvik',
+      headline: 'Full-stack Data Scientist & Technical Lead',
+      subhead: 'Data Scientist - Data Engineer - Data Platform Engineer',
+      contact: '📍 Oslo, Norway — 📞 +47 454 67 412 — ✉️ joakim.torsvik@icloud.com',
+      languages: '🌐 Norwegian (native) — 🇬🇧 English (fluent) — 🇪🇸 Spanish (B1-level)',
+      tech_title: '🛠️ Technical Proficiencies',
+      tech_cloud: '<strong>☁️ Cloud Platforms:</strong> Azure, AWS',
+      tech_bigdata: '<strong>📊 Big Data & Analytics:</strong> Databricks, HPE Data Fabric, Microsoft Fabric, Power BI, Grafana',
+      tech_programming: '<strong>🐍 Programming:</strong> Python, SQL/T-SQL/KQL, Terraform, Apache Spark, bash, PowerShell, GitHub Actions',
+      tech_workflow: '<strong>🧠 Workflow Frameworks:</strong> SCRUM, Kanban, Product Management, MLOps, DevOps, GenAI-Ops',
+      experience_title: '💼 Professional Experience',
+      sopra_title: 'Data Scientist Consultant | Sopra Steria | Aug 2022 - November 2023 | Mai 2025 - Present',
+      consultant_role: 'Consultant Role',
+      solution_arch: 'Solution Architect | Anonymous Client | Aug 2025 - Present',
+      arch_1: 'Architectural design for on-premise Spark cluster implementation',
+      arch_2: 'Developing secure analytics platform for sensitive data processing',
+      arch_3: 'Collaborating with cross-functional teams to establish data governance standards',
+      arch_4: 'Optimizing cluster performance and resource utilization',
+      arch_5: 'Implementing security protocols and access controls',
+      equinor_title: 'Full-stack Data Scientist | Equinor | Aug 2022 - Nov 2023',
+      equinor_1: 'Visualization of IT infrastructure and business data',
+      equinor_2: 'Data pipeline development using Azure Data Factory',
+      equinor_3: 'Data transformation using Python in Databricks',
+      equinor_4: 'Power BI modeling and visualization',
+      bane_title: 'Data Scientist | Bane NOR | Nov 2023 - May 2025',
+      bane_1: 'Specializing in Deep Learning and Computer Vision algorithms',
+      bane_2: 'Experience with streaming and batch data processing',
+      bane_3: 'Azure architecture setup and implementation',
+      aon_title: 'Developer | AON Norway AS | Sep 2018 – Jul 2022',
+      aon_1: 'Microsoft CRM development and administration',
+      aon_2: 'Internal process optimization',
+      aon_3: 'Ad-hoc analytics for brokers',
+      vertikal_title: 'Financial Assistant | IF/Vertikal Helse | Jul 2017 - Sep 2018',
+      vertikal_1: 'Accounts payable management',
+      vertikal_2: 'Customer reimbursement processing',
+      vertikal_3: 'Invoice handling',
+      power_title: 'Part-time Sales Representative | POWER AS | Nov 2014 - Sep 2017',
+      power_1: 'Electronics sales specialist',
+      power_2: 'Locations: Expert Drotningsvik (Bergen) and Power Colosseum (Oslo)',
+      education_title: '🎓 Education',
+      msc_title: 'MSc in Data Science | University of Sussex | 2021 - 2022',
+      grade_label: 'Grade Average:',
+      msc_grade: 'B (65%)',
+      msc_1: 'Machine Learning',
+      msc_2: 'Natural Language Processing',
+      msc_3: 'Computer Vision',
+      msc_4: 'Data Science techniques',
+      bachelor_title: 'Bachelor in Finance | BI Norwegian Business School | 2015 - 2018',
+      grade_label_b: 'Grade Average:',
+      bachelor_grade: 'C',
+      bachelor_1: 'Financial Analytics',
+      bachelor_2: 'Corporate Banking',
+      bachelor_3: 'Trading',
+      bachelor_4: 'Micro and Macroeconomics',
+      certs_title: '📜 Technical Certifications',
+      cert_1: 'Terraform Practicioner<br><span>Aug. 2025</span>',
+      cert_2: 'DASCA: Senior Data Scientist<br><span>Nov. 2024</span>',
+      cert_3: 'Databricks: Generative AI Engineer<br><span>Mar. 2025</span>',
+      cert_4: 'Databricks: Data Science Associate<br><span>Mar. 2023</span>',
+      cert_5: 'Databricks: Data Engineering Associate<br><span>May. 2023</span>',
+      cert_6: 'AI-102: Azure AI Engineer<br><span>Feb. 2023</span>',
+      cert_7: 'AI-900: Azure AI Fundamentals<br><span>Jan. 2023</span>',
+      cert_8: 'DP-100: Data Science on Azure<br><span>Sept. 2022</span>',
+      cert_9: 'DP-203: Azure Data Engineer<br><span>Jun. 2023</span>',
+      cert_10: 'PL-300: Power BI Analyst<br><span>Dec. 2022</span>',
+      cert_11: 'AZ-104: Azure Administrator<br><span>Feb. 2023</span>',
+      cert_12: 'DP-900: Azure Data Fundamentals<br><span>Sept. 2022</span>',
+      cert_13: 'ITIL 4 Foundation<br><span>Jan. 2023</span>'
+    },
+    no: {
+      name: 'Joakim Martin Torsvik',
+      headline: 'Full-stack Data Scientist og Teknisk Leder',
+      subhead: 'Data Scientist - Data Engineer - Data Platform Engineer',
+      contact: '📍 Oslo, Norge — 📞 +47 454 67 412 — ✉️ joakim.torsvik@icloud.com',
+      languages: '🌐 Norsk (morsmål) — 🇬🇧 Engelsk (flytende) — 🇪🇸 Spansk (B1-nivå)',
+      tech_title: '🛠️ Teknisk kompetanse',
+      tech_cloud: '<strong>☁️ Skytjenester:</strong> Azure, AWS',
+      tech_bigdata: '<strong>📊 Big Data & Analyse:</strong> Databricks, HPE Data Fabric, Microsoft Fabric, Power BI, Grafana',
+      tech_programming: '<strong>🐍 Programmering:</strong> Python, SQL/T-SQL/KQL, Terraform, Apache Spark, bash, PowerShell, GitHub Actions',
+      tech_workflow: '<strong>🧠 Arbeidsmetodikk:</strong> SCRUM, Kanban, Produktledelse, MLOps, DevOps, GenAI-Ops',
+      experience_title: '💼 Arbeidserfaring',
+      sopra_title: 'Data Scientist Konsulent | Sopra Steria | Aug 2022 - November 2023 | Mai 2025 - Nåværende',
+      consultant_role: 'Konsulentrolle',
+      solution_arch: 'Løsningsarkitekt | Anonym Kunde | Aug 2025 - Nåværende',
+      arch_1: 'Arkitekturdesign for on-premise Spark-klusterimplementering',
+      arch_2: 'Utvikling av sikker analyseplattform for sensitiv databehandling',
+      arch_3: 'Samarbeid med tverrfaglige team for å etablere datastyringsstandarder',
+      arch_4: 'Optimalisering av klusterytelse og ressursbruk',
+      arch_5: 'Implementering av sikkerhetsprotokoller og tilgangskontroller',
+      equinor_title: 'Full-stack Data Scientist | Equinor | Aug 2022 - Nov 2023',
+      equinor_1: 'Visualisering av IT-infrastruktur og forretningsdata',
+      equinor_2: 'Utvikling av datapipelines ved bruk av Azure Data Factory',
+      equinor_3: 'Datatransformasjon ved bruk av Python i Databricks',
+      equinor_4: 'Power BI-modellering og visualisering',
+      bane_title: 'Data Scientist | Bane NOR | Nov 2023 - May 2025',
+      bane_1: 'Spesialisering i dyp læring og datasyne (Computer Vision)',
+      bane_2: 'Erfaring med streaming og batch-databehandling',
+      bane_3: 'Oppsett og implementering av Azure-arkitektur',
+      aon_title: 'Utvikler | AON Norway AS | Sep 2018 – Jul 2022',
+      aon_1: 'Microsoft CRM-utvikling og administrasjon',
+      aon_2: 'Intern prosessoptimalisering',
+      aon_3: 'Ad-hoc analyser for meglere',
+      vertikal_title: 'Økonomiassistent | IF/Vertikal Helse | Jul 2017 - Sep 2018',
+      vertikal_1: 'Håndtering av leverandørreskontro',
+      vertikal_2: 'Behandling av kunderefusjoner',
+      vertikal_3: 'Fakturabehandling',
+      power_title: 'Deltids Salgsrepresentant | POWER AS | Nov 2014 - Sep 2017',
+      power_1: 'Spesialist innen elektronikk-salg',
+      power_2: 'Steder: Expert Drotningsvik (Bergen) og Power Colosseum (Oslo)',
+      education_title: '🎓 Utdanning',
+      msc_title: 'MSc i Data Science | University of Sussex | 2021 - 2022',
+      grade_label: 'Karaktergjennomsnitt:',
+      msc_grade: 'B (65%)',
+      msc_1: 'Maskinlæring',
+      msc_2: 'Natural Language Processing',
+      msc_3: 'Computer Vision',
+      msc_4: 'Data Science-teknikker',
+      bachelor_title: 'Bachelor i Finans | BI Norwegian Business School | 2015 - 2018',
+      grade_label_b: 'Karaktergjennomsnitt:',
+      bachelor_grade: 'C',
+      bachelor_1: 'Finansiell analyse',
+      bachelor_2: 'Corporate Banking',
+      bachelor_3: 'Trading',
+      bachelor_4: 'Makro- og mikroøkonomi',
+      certs_title: '📜 Tekniske sertifiseringer',
+      cert_1: 'Terraform Practitioner<br><span>Aug. 2025</span>',
+      cert_2: 'DASCA: Senior Data Scientist<br><span>Nov. 2024</span>',
+      cert_3: 'Databricks: Generative AI Engineer<br><span>Mar. 2025</span>',
+      cert_4: 'Databricks: Data Science Associate<br><span>Mar. 2023</span>',
+      cert_5: 'Databricks: Data Engineering Associate<br><span>May. 2023</span>',
+      cert_6: 'AI-102: Azure AI Engineer<br><span>Feb. 2023</span>',
+      cert_7: 'AI-900: Azure AI Fundamentals<br><span>Jan. 2023</span>',
+      cert_8: 'DP-100: Data Science on Azure<br><span>Sept. 2022</span>',
+      cert_9: 'DP-203: Azure Data Engineer<br><span>Jun. 2023</span>',
+      cert_10: 'PL-300: Power BI Analyst<br><span>Dec. 2022</span>',
+      cert_11: 'AZ-104: Azure Administrator<br><span>Feb. 2023</span>',
+      cert_12: 'DP-900: Azure Data Fundamentals<br><span>Sept. 2022</span>',
+      cert_13: 'ITIL 4 Foundation<br><span>Jan. 2023</span>'
+    }
+  };
+
+  function setLanguage(lang) {
+    const elems = document.querySelectorAll('[data-i18n]');
+    elems.forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      const text = translations[lang] && translations[lang][key];
+      if (typeof text !== 'undefined') {
+        // allow HTML in translation strings
+        el.innerHTML = text;
+      }
+    });
+    document.documentElement.lang = (lang === 'no') ? 'nb' : 'en';
+    localStorage.setItem('cv_lang', lang);
+    const btn = document.getElementById('langToggle');
+    // show both flags and the target language label
+    if (lang === 'no') {
+      btn.innerHTML = '🇳🇴 🇬🇧 English';
+      btn.setAttribute('aria-label', 'Switch to English');
+    } else {
+      btn.innerHTML = '🇳🇴 🇬🇧 Norsk';
+      btn.setAttribute('aria-label', 'Bytt til norsk');
+    }
+  }
+
+  document.getElementById('langToggle').addEventListener('click', () => {
+    const current = localStorage.getItem('cv_lang') || 'en';
+    const next = (current === 'en') ? 'no' : 'en';
+    setLanguage(next);
+  });
+
+  // initialize from storage or default to English
+  (function() {
+    const saved = localStorage.getItem('cv_lang') || 'en';
+    setLanguage(saved);
+  })();
+</script>
 
 </body>
 </html>
