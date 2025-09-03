@@ -12,7 +12,17 @@
       position: relative;
     }
     .language-switch {
-      position: fixed;
+         // Update section headers
+    const sectionHeaders = {
+        'Technical Proficiencies': '🛠️ ' + translations[lang].technicalProficiencies,
+        'Professional Experience': '💼 ' + translations[lang].experience,
+        'Education': '🎓 ' + translations[lang].education,
+        'Technical Certifications': '📜 ' + translations[lang].certifications
+    };
+
+    Object.entries(sectionHeaders).forEach(([en, translated]) => {
+        updateTextContent('.section h2', translated, en, translated.slice(2));
+    });fixed;
       top: 20px;
       right: 20px;
       padding: 8px 16px;
@@ -409,46 +419,31 @@ function toggleLanguage() {
     document.querySelectorAll('h3').forEach(h3 => {
         if (h3.textContent.includes('MSc')) {
             h3.textContent = translations[lang].sussexMsc;
-        } else if (h3.textContent.includes('Bachelor')) {
-            h3.textContent = translations[lang].biBachelor;
-        }
-
-        // Update grade average and courses
-        if (h3.textContent.includes('MSc') || h3.textContent.includes('Bachelor')) {
             const gradeP = h3.nextElementSibling;
             if (gradeP && gradeP.querySelector('strong')) {
                 gradeP.querySelector('strong').textContent = translations[lang].gradeAverage;
             }
-
             const list = h3.nextElementSibling.nextElementSibling;
             if (list && list.tagName === 'UL') {
-                const courseKey = h3.textContent.includes('MSc') ? 'sussexMscCourses' : 'biCourses';
                 const items = list.querySelectorAll('li');
-                translations[lang][courseKey].forEach((course, index) => {
+                translations[lang].sussexCourses.forEach((course, index) => {
+                    if (items[index]) items[index].textContent = course;
+                });
+            }
+        } else if (h3.textContent.includes('Bachelor')) {
+            h3.textContent = translations[lang].biBachelor;
+            const gradeP = h3.nextElementSibling;
+            if (gradeP && gradeP.querySelector('strong')) {
+                gradeP.querySelector('strong').textContent = translations[lang].gradeAverage;
+            }
+            const list = h3.nextElementSibling.nextElementSibling;
+            if (list && list.tagName === 'UL') {
+                const items = list.querySelectorAll('li');
+                translations[lang].biCourses.forEach((course, index) => {
                     if (items[index]) items[index].textContent = course;
                 });
             }
         }
-    });
-    ];
-
-    educationMapping.forEach(({ titleMatch, key }) => {
-        document.querySelectorAll('h3').forEach(h3 => {
-            if (titleMatch.some(title => h3.textContent.includes(title))) {
-                h3.textContent = translations[lang][key];
-                const gradeP = h3.nextElementSibling;
-                if (gradeP && gradeP.querySelector('strong')) {
-                    gradeP.querySelector('strong').textContent = translations[lang].gradeAverage;
-                }
-                const list = gradeP.nextElementSibling;
-                if (list && list.tagName === 'UL') {
-                    const items = list.querySelectorAll('li');
-                    translations[lang][key + 'Courses'].forEach((course, index) => {
-                        if (items[index]) items[index].textContent = course;
-                    });
-                }
-            }
-        });
     });
 }
 </script>
