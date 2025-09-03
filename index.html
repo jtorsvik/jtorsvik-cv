@@ -9,6 +9,23 @@
       margin: 40px;
       line-height: 1.6;
       color: #333;
+      position: relative;
+    }
+    .language-switch {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      padding: 8px 16px;
+      background-color: #2c3e50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background-color 0.3s;
+    }
+    .language-switch:hover {
+      background-color: #34495e;
     }
     h1, h2, h3, h4 {
       color: #2c3e50;
@@ -73,7 +90,283 @@
 </head>
 <body>
 
+<button class="language-switch" onclick="toggleLanguage()" id="langButton">Norsk</button>
+
 <img src="profile.jpg" alt="Joakim Martin Torsvik" style="width:150px; border-radius:50%; margin-bottom:20px;">
+
+<script>
+let isEnglish = true;
+
+const translations = {
+    en: {
+        title: "Full-stack Data Scientist & Technical Lead",
+        subtitle: "Data Scientist - Data Engineer - Data Platform Engineer",
+        contact: "📍 Oslo, Norway — 📞 +47 454 67 412 — ✉️ joakim.torsvik@icloud.com",
+        languages: "🌐 Norwegian (native) — 🇬🇧 English (fluent) — 🇪🇸 Spanish (B1-level)",
+        technicalProficiencies: "Technical Proficiencies",
+        experience: "Professional Experience",
+        education: "Education",
+        certifications: "Technical Certifications",
+        
+        // Technical Proficiencies
+        cloudPlatforms: "☁️ Cloud Platforms:",
+        cloudPlatformsText: "Azure, AWS",
+        bigData: "📊 Big Data & Analytics:",
+        bigDataText: "Databricks, HPE Data Fabric, Microsoft Fabric, Power BI, Grafana",
+        programming: "🐍 Programming:",
+        programmingText: "Python, SQL/T-SQL/KQL, Terraform, Apache Spark, bash, PowerShell, GitHub Actions",
+        workflow: "🧠 Workflow Frameworks:",
+        workflowText: "SCRUM, Kanban, Product Management, MLOps, DevOps, GenAI-Ops",
+
+        // Roles
+        consultantRole: "Consultant Role",
+        solutionArchitect: "Solution Architect | Anonymous Client | Aug 2025 - Present",
+        solutionArchitectDetails: [
+            "Architectural design for on-premise Spark cluster implementation",
+            "Developing secure analytics platform for sensitive data processing",
+            "Collaborating with cross-functional teams to establish data governance standards",
+            "Optimizing cluster performance and resource utilization",
+            "Implementing security protocols and access controls"
+        ],
+        
+        dataScientistEquinor: "Full-stack Data Scientist | Equinor | Aug 2022 - Nov 2023",
+        equinorDetails: [
+            "Visualization of IT infrastructure and business data",
+            "Data pipeline development using Azure Data Factory",
+            "Data transformation using Python in Databricks",
+            "Power BI modeling and visualization"
+        ],
+
+        dataScientistBaneNOR: "Data Scientist | Bane NOR | Nov 2023 - May 2025",
+        baneNORDetails: [
+            "Specializing in Deep Learning and Computer Vision algorithms",
+            "Experience with streaming and batch data processing",
+            "Azure architecture setup and implementation"
+        ],
+
+        developerAON: "Developer | AON Norway AS | Sep 2018 – Jul 2022",
+        aonDetails: [
+            "Microsoft CRM development and administration",
+            "Internal process optimization",
+            "Ad-hoc analytics for brokers"
+        ],
+
+        financeAssistant: "Financial Assistant | IF/Vertikal Helse | Jul 2017 - Sep 2018",
+        vertikalDetails: [
+            "Accounts payable management",
+            "Customer reimbursement processing",
+            "Invoice handling"
+        ],
+
+        salesRep: "Part-time Sales Representative | POWER AS | Nov 2014 - Sep 2017",
+        powerDetails: [
+            "Electronics sales specialist",
+            "Locations: Expert Drotningsvik (Bergen) and Power Colosseum (Oslo)"
+        ],
+
+        // Education
+        sussexMsc: "MSc in Data Science | University of Sussex | 2021 - 2022",
+        gradeAverage: "Grade Average:",
+        sussexGrade: "B (65%)",
+        sussexCourses: [
+            "Machine Learning",
+            "Natural Language Processing",
+            "Computer Vision",
+            "Data Science techniques"
+        ],
+
+        biBachelor: "Bachelor in Finance | BI Norwegian Business School | 2015 - 2018",
+        biGrade: "C",
+        biCourses: [
+            "Financial Analytics",
+            "Corporate Banking",
+            "Trading",
+            "Micro and Macroeconomics"
+        ]
+    },
+    no: {
+        title: "Full-stack Dataviter & Teknisk Lead",
+        subtitle: "Dataviter - Data Ingeniør - Dataplattform Ingeniør",
+        location: "Oslo, Norge",
+        contact: "📍 Oslo, Norge — 📞 +47 454 67 412 — ✉️ joakim.torsvik@icloud.com",
+        languages: "🌐 Norsk (morsmål) — 🇬🇧 Engelsk (flytende) — 🇪🇸 Spansk (B1-nivå)",
+        technicalProficiencies: "Tekniske Ferdigheter",
+        experience: "Arbeidserfaring",
+        education: "Utdanning",
+        certifications: "Tekniske Sertifiseringer",
+        
+        // Technical Proficiencies
+        cloudPlatforms: "☁️ Skytjenester:",
+        cloudPlatformsText: "Azure, AWS",
+        bigData: "📊 Stordata & Analyse:",
+        bigDataText: "Databricks, HPE Data Fabric, Microsoft Fabric, Power BI, Grafana",
+        programming: "🐍 Programmering:",
+        programmingText: "Python, SQL/T-SQL/KQL, Terraform, Apache Spark, bash, PowerShell, GitHub Actions",
+        workflow: "🧠 Arbeidsrammeverk:",
+        workflowText: "SCRUM, Kanban, Produktledelse, MLOps, DevOps, GenAI-Ops",
+
+        // Roles
+        consultantRole: "Konsulentstilling",
+        solutionArchitect: "Løsningsarkitekt | Anonym Kunde | Aug 2025 - Nå",
+        solutionArchitectDetails: [
+            "Arkitekturdesign for implementering av lokal Spark-klynge",
+            "Utvikling av sikker analyseplattform for behandling av sensitive data",
+            "Samarbeid med tverrfaglige team for å etablere datahåndteringsstandarder",
+            "Optimalisering av klyngeytelse og ressursutnyttelse",
+            "Implementering av sikkerhetsprotokoller og tilgangskontroller"
+        ],
+
+        dataScientistEquinor: "Full-stack Dataviter | Equinor | Aug 2022 - Nov 2023",
+        equinorDetails: [
+            "Visualisering av IT-infrastruktur og forretningsdata",
+            "Utvikling av datapipelines med Azure Data Factory",
+            "Datatransformasjon med Python i Databricks",
+            "Power BI modellering og visualisering"
+        ],
+
+        dataScientistBaneNOR: "Dataviter | Bane NOR | Nov 2023 - Mai 2025",
+        baneNORDetails: [
+            "Spesialisering innen dyplæring og maskinsynsalgoritmer",
+            "Erfaring med strømmende og batchvis databehandling",
+            "Azure-arkitektur oppsett og implementering"
+        ],
+
+        developerAON: "Utvikler | AON Norway AS | Sep 2018 – Jul 2022",
+        aonDetails: [
+            "Microsoft CRM utvikling og administrasjon",
+            "Intern prosessoptimalisering",
+            "Ad-hoc analyser for meglere"
+        ],
+
+        financeAssistant: "Økonomiassistent | IF/Vertikal Helse | Jul 2017 - Sep 2018",
+        vertikalDetails: [
+            "Leverandørreskontro",
+            "Behandling av kunderefusjoner",
+            "Fakturahåndtering"
+        ],
+
+        salesRep: "Deltidsselger | POWER AS | Nov 2014 - Sep 2017",
+        powerDetails: [
+            "Elektronikkspesialist",
+            "Lokasjon: Expert Drotningsvik (Bergen) og Power Colosseum (Oslo)"
+        ],
+
+        // Education
+        sussexMsc: "MSc i Data Science | University of Sussex | 2021 - 2022",
+        gradeAverage: "Karaktersnitt:",
+        sussexGrade: "B (65%)",
+        sussexCourses: [
+            "Maskinlæring",
+            "Naturlig språkprosessering",
+            "Maskinsyn",
+            "Datavitenskapsteknikker"
+        ],
+
+        biBachelor: "Bachelor i Finans | BI Norwegian Business School | 2015 - 2018",
+        biGrade: "C",
+        biCourses: [
+            "Finansanalyse",
+            "Bedriftsfinansiering",
+            "Trading",
+            "Mikro- og Makroøkonomi"
+        ]
+    }}
+};
+
+function toggleLanguage() {
+    isEnglish = !isEnglish;
+    const lang = isEnglish ? 'en' : 'no';
+    const buttonText = isEnglish ? 'Norsk' : 'English';
+    
+    document.getElementById('langButton').textContent = buttonText;
+    
+    // Update main content
+    document.querySelector('h2').textContent = translations[lang].title;
+    document.querySelector('h3').textContent = translations[lang].subtitle;
+    document.querySelector('.contact').textContent = translations[lang].contact;
+    document.querySelector('.languages').textContent = translations[lang].languages;
+    
+    // Helper function to update text content if element exists and contains any of the keywords
+    const updateTextContent = (selector, newText, ...keywords) => {
+        const elements = document.querySelectorAll(selector);
+        elements.forEach(el => {
+            if (keywords.some(keyword => el.textContent.includes(keyword))) {
+                el.textContent = newText;
+            }
+        });
+    };
+
+    // Update section headers
+    const sectionHeaders = {
+        'Technical Proficiencies': '�️ ' + translations[lang].technicalProficiencies,
+        'Professional Experience': '💼 ' + translations[lang].experience,
+        'Education': '🎓 ' + translations[lang].education,
+        'Technical Certifications': '📜 ' + translations[lang].certifications
+    };
+
+    Object.entries(sectionHeaders).forEach(([en, translated]) => {
+        updateTextContent('.section h2', translated, en, translated.slice(2));
+    });
+
+    // Update Technical Proficiencies
+    const proficiencyMap = {
+        'Cloud Platforms': translations[lang].cloudPlatforms,
+        'Big Data': translations[lang].bigData,
+        'Programming': translations[lang].programming,
+        'Workflow': translations[lang].workflow
+    };
+
+    Object.entries(proficiencyMap).forEach(([key, value]) => {
+        updateTextContent('.section ul li strong', value, key, value);
+    });
+
+    // Update Job Titles and Descriptions
+    updateTextContent('h4', translations[lang].solutionArchitect, 'Solution Architect', 'Løsningsarkitekt');
+    updateTextContent('p[style*="font-style: italic"]', translations[lang].consultantRole, 'Consultant Role', 'Konsulentstilling');
+
+    // Helper function to update list items
+    const updateList = (parentSelector, details) => {
+        const parent = document.querySelector(parentSelector);
+        if (parent) {
+            const items = parent.querySelectorAll('li');
+            details.forEach((detail, index) => {
+                if (items[index]) items[index].textContent = detail;
+            });
+        }
+    };
+
+    // Update experience sections
+    const experienceSelectors = {
+        'Solution Architect': translations[lang].solutionArchitectDetails,
+        'Full-stack Data Scientist': translations[lang].equinorDetails,
+        'Data Scientist | Bane NOR': translations[lang].baneNORDetails,
+        'Developer | AON': translations[lang].aonDetails,
+        'Financial Assistant': translations[lang].vertikalDetails,
+        'Part-time Sales': translations[lang].powerDetails
+    };
+
+    Object.entries(experienceSelectors).forEach(([title, details]) => {
+        document.querySelectorAll('h4, h3').forEach(heading => {
+            if (heading.textContent.includes(title)) {
+                updateList(heading.nextElementSibling.tagName === 'UL' ? 
+                    heading.nextElementSibling : 
+                    heading.parentElement.nextElementSibling, details);
+            }
+        });
+    });
+
+    // Update education sections
+    ['sussexMsc', 'biBachelor'].forEach(key => {
+        document.querySelectorAll('h3').forEach(h3 => {
+            if (h3.textContent.includes(translations.en[key]) || h3.textContent.includes(translations.no[key])) {
+                h3.textContent = translations[lang][key];
+                h3.nextElementSibling.querySelector('strong').textContent = translations[lang].gradeAverage;
+                updateList(h3.nextElementSibling.nextElementSibling, translations[lang][key + 'Courses']);
+            }
+        });
+    });
+}
+</script>
 
 <h1>Joakim Martin Torsvik</h1>
   <h2>Full-stack Data Scientist & Technical Lead </h2>
