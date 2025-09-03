@@ -187,8 +187,8 @@ const translations = {
         ]
     },
     no: {
-        title: "Full-stack Dataviter & Teknisk Lead",
-        subtitle: "Dataviter - Data Ingeniør - Dataplattform Ingeniør",
+        title: "Full-stack Data Scientist & Teknisk Lead",
+        subtitle: "Data Scientist - Data Ingeniør - Dataplattform Ingeniør",
         location: "Oslo, Norge",
         contact: "📍 Oslo, Norge — 📞 +47 454 67 412 — ✉️ joakim.torsvik@icloud.com",
         languages: "🌐 Norsk (morsmål) — 🇬🇧 Engelsk (flytende) — 🇪🇸 Spansk (B1-nivå)",
@@ -218,7 +218,7 @@ const translations = {
             "Implementering av sikkerhetsprotokoller og tilgangskontroller"
         ],
 
-        dataScientistEquinor: "Full-stack Dataviter | Equinor | Aug 2022 - Nov 2023",
+        dataScientistEquinor: "Full-stack Data Scientist | Equinor | Aug 2022 - Nov 2023",
         equinorDetails: [
             "Visualisering av IT-infrastruktur og forretningsdata",
             "Utvikling av datapipelines med Azure Data Factory",
@@ -226,7 +226,7 @@ const translations = {
             "Power BI modellering og visualisering"
         ],
 
-        dataScientistBaneNOR: "Dataviter | Bane NOR | Nov 2023 - Mai 2025",
+        dataScientistBaneNOR: "Data Scientist | Bane NOR | Nov 2023 - Mai 2025",
         baneNORDetails: [
             "Spesialisering innen dyplæring og maskinsynsalgoritmer",
             "Erfaring med strømmende og batchvis databehandling",
@@ -337,33 +337,97 @@ function toggleLanguage() {
         }
     };
 
-    // Update experience sections
-    const experienceSelectors = {
-        'Solution Architect': translations[lang].solutionArchitectDetails,
-        'Full-stack Data Scientist': translations[lang].equinorDetails,
-        'Data Scientist | Bane NOR': translations[lang].baneNORDetails,
-        'Developer | AON': translations[lang].aonDetails,
-        'Financial Assistant': translations[lang].vertikalDetails,
-        'Part-time Sales': translations[lang].powerDetails
+    // Update job titles
+    const jobTitles = {
+        'Data Scientist Consultant': 'Datavitenskapskonsulent',
+        'Solution Architect': 'Løsningsarkitekt',
+        'Full-stack Data Scientist': 'Full-stack Dataviter',
+        'Data Scientist': 'Dataviter',
+        'Developer': 'Utvikler',
+        'Financial Assistant': 'Økonomiassistent',
+        'Part-time Sales Representative': 'Deltidsselger'
     };
 
-    Object.entries(experienceSelectors).forEach(([title, details]) => {
-        document.querySelectorAll('h4, h3').forEach(heading => {
-            if (heading.textContent.includes(title)) {
-                updateList(heading.nextElementSibling.tagName === 'UL' ? 
-                    heading.nextElementSibling : 
-                    heading.parentElement.nextElementSibling, details);
+    // Update all job titles in h3 and h4 elements
+    document.querySelectorAll('h3, h4').forEach(heading => {
+        Object.entries(jobTitles).forEach(([en, no]) => {
+            if (heading.textContent.includes(en)) {
+                heading.textContent = heading.textContent.replace(en, isEnglish ? en : no);
+            } else if (heading.textContent.includes(no)) {
+                heading.textContent = heading.textContent.replace(no, isEnglish ? en : no);
+            }
+        });
+    });
+
+    // Update experience sections
+    const experienceMapping = [
+        {
+            titleMatch: ['Solution Architect', 'Løsningsarkitekt'],
+            details: translations[lang].solutionArchitectDetails
+        },
+        {
+            titleMatch: ['Full-stack Data Scientist', 'Full-stack Dataviter'],
+            details: translations[lang].equinorDetails
+        },
+        {
+            titleMatch: ['Data Scientist | Bane NOR', 'Dataviter | Bane NOR'],
+            details: translations[lang].baneNORDetails
+        },
+        {
+            titleMatch: ['Developer | AON', 'Utvikler | AON'],
+            details: translations[lang].aonDetails
+        },
+        {
+            titleMatch: ['Financial Assistant', 'Økonomiassistent'],
+            details: translations[lang].vertikalDetails
+        },
+        {
+            titleMatch: ['Part-time Sales Representative', 'Deltidsselger'],
+            details: translations[lang].powerDetails
+        }
+    ];
+
+    experienceMapping.forEach(({ titleMatch, details }) => {
+        document.querySelectorAll('h3, h4').forEach(heading => {
+            if (titleMatch.some(title => heading.textContent.includes(title))) {
+                const list = heading.nextElementSibling;
+                if (list && list.tagName === 'UL') {
+                    const items = list.querySelectorAll('li');
+                    details.forEach((detail, index) => {
+                        if (items[index]) items[index].textContent = detail;
+                    });
+                }
             }
         });
     });
 
     // Update education sections
-    ['sussexMsc', 'biBachelor'].forEach(key => {
+    const educationMapping = [
+        {
+            titleMatch: ['MSc in Data Science', 'MSc i Data Science'],
+            key: 'sussexMsc'
+        },
+        {
+            titleMatch: ['Bachelor in Finance', 'Bachelor i Finans'],
+            key: 'biBachelor'
+        }
+    ];
+
+    educationMapping.forEach(({ titleMatch, key }) => {
         document.querySelectorAll('h3').forEach(h3 => {
-            if (h3.textContent.includes(translations.en[key]) || h3.textContent.includes(translations.no[key])) {
+            if (titleMatch.some(title => h3.textContent.includes(title))) {
                 h3.textContent = translations[lang][key];
-                h3.nextElementSibling.querySelector('strong').textContent = translations[lang].gradeAverage;
-                updateList(h3.nextElementSibling.nextElementSibling, translations[lang][key + 'Courses']);
+                const gradeP = h3.nextElementSibling;
+                if (gradeP && gradeP.querySelector('strong')) {
+                    gradeP.querySelector('strong').textContent = translations[lang].gradeAverage;
+                }
+                const list = gradeP.nextElementSibling;
+                if (list && list.tagName === 'UL') {
+                    const items = list.querySelectorAll('li');
+                    translations[lang][key + 'Courses'].forEach((course, index) => {
+                        if (items[index]) items[index].textContent = course;
+                    });
+                }
             }
         });
     });
