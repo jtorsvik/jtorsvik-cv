@@ -405,17 +405,43 @@ function toggleLanguage() {
   Object.keys(translations[currentLang]).forEach(key => {
     const elements = document.querySelectorAll(`[data-translate="${key}"]`);
     elements.forEach(element => {
-      element.textContent = translations[currentLang][key];
+      if (key.includes('.')) {
+        // Handle nested translations (e.g., 'subjects.ml')
+        const [section, subKey] = key.split('.');
+        element.textContent = translations[currentLang][section][subKey];
+      } else if (translations[currentLang][key] && typeof translations[currentLang][key] === 'object') {
+        // Handle objects like experienceDetails
+        Object.keys(translations[currentLang][key]).forEach(subKey => {
+          const subElements = document.querySelectorAll(`[data-translate="${key}.${subKey}"]`);
+          subElements.forEach(el => {
+            el.textContent = translations[currentLang][key][subKey];
+          });
+        });
+      } else {
+        element.textContent = translations[currentLang][key];
+      }
     });
   });
 }
 
 // Add data-translate attributes when the page loads
 document.addEventListener('DOMContentLoaded', () => {
-  // Add data-translate attributes to elements
-  function addTranslateAttribute(selector, key) {
-    const elements = document.querySelectorAll(selector);
+  // Helper function to add translation attributes
+  function addTranslateAttribute(selector, key, context = document) {
+    const elements = context.querySelectorAll(selector);
     elements.forEach(el => el.setAttribute('data-translate', key));
+  }
+
+  // Helper function to find and mark translatable list items
+  function markListItems(container, translations) {
+    container.querySelectorAll('ul li').forEach(li => {
+      const text = li.textContent.trim();
+      Object.entries(translations).forEach(([key, value]) => {
+        if (typeof value === 'string' && text === value) {
+          li.setAttribute('data-translate', key);
+        }
+      });
+    });
   }
 
   // Main sections and titles
@@ -457,38 +483,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Job descriptions
-  document.querySelectorAll('.role ul li').forEach(li => {
-    const text = li.textContent.trim();
-    const translationKey = Object.keys(translations.en).find(key => 
-      translations.en[key] === text
-    );
-    if (translationKey) {
-      li.setAttribute('data-translate', translationKey);
+  // Mark all role descriptions for translation
+  document.querySelectorAll('.role').forEach(role => {
+    // Find and mark all list items in roles
+    markListItems(role, translations.en);
+    
+    // Mark consultant role text
+    const consultantText = role.querySelector('p[style*="font-style: italic"]');
+    if (consultantText) {
+      consultantText.setAttribute('data-translate', 'consultantRole');
     }
   });
-
-  // Education section
-  const educationSection = document.querySelector('.section:nth-of-type(3)');
-  if (educationSection) {
-    const eduTitles = educationSection.querySelectorAll('h3');
-    eduTitles.forEach(title => {
-      if (title.textContent.includes('MSc')) {
-        title.setAttribute('data-translate', 'msDataScience');
-      } else if (title.textContent.includes('Bachelor')) {
-        title.setAttribute('data-translate', 'bachelorFinance');
-      }
-    });
-
-    educationSection.querySelectorAll('ul li').forEach(li => {
-      const text = li.textContent.trim();
-      Object.entries(translations.en.subjects).forEach(([key, value]) => {
-        if (text === value) {
-          li.setAttribute('data-translate', `subjects.${key}`);
-        }
-      });
-    });
-  }
 
   // Update grade average labels
   addTranslateAttribute('p > strong:contains("Grade Average")', 'gradeAverage');
@@ -517,27 +522,44 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Update Education section headers
-  document.querySelectorAll('.section h3').forEach(header => {
-    const text = header.textContent.trim();
-    if (text.includes('University of Sussex')) {
-      header.setAttribute('data-translate', 'educationDetails.sussex');
-    } else if (text.includes('BI Norwegian')) {
-      header.setAttribute('data-translate', 'educationDetails.bi');
+  // Update Education section headers and content
+  const eduSection = document.querySelector('.section:nth-of-type(3)');
+  if (eduSection) {
+    // Mark education headers
+    eduSection.querySelectorAll('h3').forEach(header => {
+      const text = header.textContent.trim();
+      if (text.includes('University of Sussex')) {
+        header.setAttribute('data-translate', 'educationDetails.sussex');
+      } else if (text.includes('BI Norwegian')) {
+        header.setAttribute('data-translate', 'educationDetails.bi');
+      }
+    });
+
+    // Mark education subjects
+    eduSection.querySelectorAll('ul li').forEach(li => {
+      const text = li.textContent.trim();
+      Object.entries(translations.en.subjects).forEach(([key, value]) => {
+        if (text === value) {
+          li.setAttribute('data-translate', `subjects.${key}`);
+        }
+      });
+    });
+  }
+
+  // Update all certification badges
+  document.querySelectorAll('.cert-badge').forEach(badge => {
+    const text = badge.childNodes[0].textContent.trim();
+    const translationKey = Object.keys(translations.en).find(key => 
+      translations.en[key] === text
+    );
+    if (translationKey) {
+      badge.childNodes[0].setAttribute('data-translate', translationKey);
     }
   });
 
-  Object.entries(elements).forEach(([key, element]) => {
-    if (element instanceof NodeList) {
-      element.forEach(el => {
-        if (el.textContent.includes('Grade Average')) {
-          el.setAttribute('data-translate', key);
-        }
-      });
-    } else if (element) {
-      element.setAttribute('data-translate', key);
-    }
-  });
+  // Initialize the page with the default language
+  toggleLanguage();
+  toggleLanguage(); // Call twice to reset to English
 });
 </script>
 </body>
