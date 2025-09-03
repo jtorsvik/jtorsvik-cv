@@ -12,17 +12,7 @@
       position: relative;
     }
     .language-switch {
-         // Update section headers
-    const sectionHeaders = {
-        'Technical Proficiencies': '🛠️ ' + translations[lang].technicalProficiencies,
-        'Professional Experience': '💼 ' + translations[lang].experience,
-        'Education': '🎓 ' + translations[lang].education,
-        'Technical Certifications': '📜 ' + translations[lang].certifications
-    };
-
-    Object.entries(sectionHeaders).forEach(([en, translated]) => {
-        updateTextContent('.section h2', translated, en, translated.slice(2));
-    });fixed;
+      position: fixed;
       top: 20px;
       right: 20px;
       padding: 8px 16px;
