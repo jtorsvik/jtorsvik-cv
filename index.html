@@ -12,7 +12,7 @@
       position: relative;
     }
     .language-switch {
-      position: absolute;
+      position: fixed;
       top: 20px;
       right: 20px;
       padding: 8px 16px;
@@ -22,10 +22,13 @@
       border-radius: 4px;
       cursor: pointer;
       font-size: 14px;
-      transition: background-color 0.3s;
+      transition: all 0.3s;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
     .language-switch:hover {
       background-color: #34495e;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.2);
     }
     h1, h2, h3, h4 {
       color: #2c3e50;
@@ -209,12 +212,12 @@ const translations = {
 
         // Roles
         consultantRole: "Konsulentstilling",
-        solutionArchitect: "Løsningsarkitekt | Anonym Kunde | Aug 2025 - Nå",
+        solutionArchitect: "Løsningsarkitekt | Anonym Kunde | Aug 2025 - Nåværende",
         solutionArchitectDetails: [
-            "Arkitekturdesign for implementering av lokal Spark-klynge",
+            "Arkitekturdesign for implementering av lokal Spark-cluster",
             "Utvikling av sikker analyseplattform for behandling av sensitive data",
             "Samarbeid med tverrfaglige team for å etablere datahåndteringsstandarder",
-            "Optimalisering av klyngeytelse og ressursutnyttelse",
+            "Optimalisering av cluster-ytelse og ressursutnyttelse",
             "Implementering av sikkerhetsprotokoller og tilgangskontroller"
         ],
 
@@ -233,7 +236,7 @@ const translations = {
             "Azure-arkitektur oppsett og implementering"
         ],
 
-        developerAON: "Utvikler | AON Norway AS | Sep 2018 – Jul 2022",
+        developerAON: "Utvikler | AON Norway AS | Sep 2018 - Jul 2022",
         aonDetails: [
             "Microsoft CRM utvikling og administrasjon",
             "Intern prosessoptimalisering",
