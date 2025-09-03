@@ -233,6 +233,16 @@
 </div>
 
 <script>
+// Function to wrap text nodes in translatable spans
+function wrapTextInTranslatable(element, key) {
+  if (!element) return;
+  const span = document.createElement('span');
+  span.setAttribute('data-translate', key);
+  span.textContent = element.textContent;
+  element.textContent = '';
+  element.appendChild(span);
+}
+
 const translations = {
   en: {
     // Contact info
@@ -400,6 +410,7 @@ function toggleLanguage() {
   currentLang = currentLang === 'en' ? 'no' : 'en';
   const button = document.getElementById('langSwitch');
   button.textContent = currentLang === 'en' ? '🇳🇴 Norsk' : '🇬🇧 English';
+  document.documentElement.lang = currentLang;
   
   // Update all translatable elements
   Object.keys(translations[currentLang]).forEach(key => {
@@ -427,30 +438,63 @@ function toggleLanguage() {
 // Add data-translate attributes when the page loads
 document.addEventListener('DOMContentLoaded', () => {
   // Helper function to add translation attributes
-  function addTranslateAttribute(selector, key, context = document) {
-    const elements = context.querySelectorAll(selector);
-    elements.forEach(el => el.setAttribute('data-translate', key));
+  function addTranslateAttribute(element, key) {
+    if (element) {
+      element.setAttribute('data-translate', key);
+    }
+  }
+
+  // Helper function to find text node and wrap it
+  function wrapTextNode(element, key) {
+    if (element.childNodes.length === 1 && element.childNodes[0].nodeType === 3) {
+      const span = document.createElement('span');
+      span.setAttribute('data-translate', key);
+      span.textContent = element.textContent;
+      element.textContent = '';
+      element.appendChild(span);
+    }
   }
 
   // Helper function to find and mark translatable list items
-  function markListItems(container, translations) {
+  function markListItems(container, translations, prefix = '') {
     container.querySelectorAll('ul li').forEach(li => {
       const text = li.textContent.trim();
       Object.entries(translations).forEach(([key, value]) => {
         if (typeof value === 'string' && text === value) {
-          li.setAttribute('data-translate', key);
+          wrapTextNode(li, prefix ? `${prefix}.${key}` : key);
         }
       });
     });
   }
 
-  // Main sections and titles
-  const sections = {
-    'technicalProficiencies': document.querySelector('.section:nth-of-type(1) > h2'),
-    'professionalExperience': document.querySelector('.section:nth-of-type(2) > h2'),
-    'education': document.querySelector('.section:nth-of-type(3) > h2'),
-    'certifications': document.querySelector('.section:nth-of-type(4) > h2')
-  };
+  // Initialize all sections
+  const sections = document.querySelectorAll('.section');
+  
+  // Process each section
+  sections.forEach((section, index) => {
+    const sectionTitle = section.querySelector('h2');
+    if (!sectionTitle) return;
+
+    // Add translation attributes to section headers
+    if (index === 0) addTranslateAttribute(sectionTitle, 'technicalProficiencies');
+    else if (index === 1) addTranslateAttribute(sectionTitle, 'professionalExperience');
+    else if (index === 2) addTranslateAttribute(sectionTitle, 'education');
+    else if (index === 3) addTranslateAttribute(sectionTitle, 'certifications');
+
+    // Process technical proficiencies section
+    if (index === 0) {
+      section.querySelectorAll('li strong').forEach(strong => {
+        if (strong.textContent.includes('Cloud Platforms')) {
+          addTranslateAttribute(strong, 'cloudPlatformsLabel');
+        } else if (strong.textContent.includes('Big Data')) {
+          addTranslateAttribute(strong, 'bigDataLabel');
+        } else if (strong.textContent.includes('Programming')) {
+          addTranslateAttribute(strong, 'programmingLabel');
+        } else if (strong.textContent.includes('Workflow')) {
+          addTranslateAttribute(strong, 'workflowLabel');
+        }
+      });
+    }
 
   // Apply translations to section headers
   Object.entries(sections).forEach(([key, element]) => {
