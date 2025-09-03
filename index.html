@@ -325,9 +325,10 @@ function toggleLanguage() {
         updateTextContent('.section ul li strong', value, key, value);
     });
 
-    // Update Job Titles and Descriptions
-    updateTextContent('h4', translations[lang].dataPlatformArchitect, 'Data Platform Architect', 'Data Plattform Arkitekt');
-    updateTextContent('p[style*="font-style: italic"]', translations[lang].consultantRole, 'Consultant Role', 'Konsulentstilling');
+    // Update all consultant role text
+    document.querySelectorAll('p[style*="font-style: italic"]').forEach(p => {
+        p.textContent = translations[lang].consultantRole;
+    });
 
     // Helper function to update list items
     const updateList = (parentSelector, details) => {
@@ -343,9 +344,9 @@ function toggleLanguage() {
     // Update job titles
     const jobTitles = {
         'Data Scientist Consultant': 'Datavitenskapskonsulent',
-        'Data Platform Architect': 'Data Plattform Arkitekt',
-        'Full-stack Data Scientist': 'Full-stack Data Scientist',
-        'Data Scientist': 'Data Scientist',
+        'Solution Architect': 'Løsningsarkitekt',
+        'Full-stack Data Scientist': 'Full-stack Dataviter',
+        'Data Scientist': 'Dataviter',
         'Developer': 'Utvikler',
         'Financial Assistant': 'Økonomiassistent',
         'Part-time Sales Representative': 'Deltidsselger'
@@ -365,11 +366,11 @@ function toggleLanguage() {
     // Update experience sections
     const experienceMapping = [
         {
-            titleMatch: ['Data Platform Architect', 'Data Plattform Arkitekt'],
+            titleMatch: ['Solution Architect', 'Løsningsarkitekt'],
             details: translations[lang].solutionArchitectDetails
         },
         {
-            titleMatch: ['Full-stack Data Scientist', 'Full-stack Data Scientist'],
+            titleMatch: ['Full-stack Data Scientist | Equinor', 'Full-stack Dataviter | Equinor'],
             details: translations[lang].equinorDetails
         },
         {
@@ -404,16 +405,31 @@ function toggleLanguage() {
         });
     });
 
-    // Update education sections
-    const educationMapping = [
-        {
-            titleMatch: ['MSc in Data Science', 'MSc i Data Science'],
-            key: 'sussexMsc'
-        },
-        {
-            titleMatch: ['Bachelor in Finance', 'Bachelor i Finans'],
-            key: 'biBachelor'
+    // Find and update all headings that match degree titles
+    document.querySelectorAll('h3').forEach(h3 => {
+        if (h3.textContent.includes('MSc')) {
+            h3.textContent = translations[lang].sussexMsc;
+        } else if (h3.textContent.includes('Bachelor')) {
+            h3.textContent = translations[lang].biBachelor;
         }
+
+        // Update grade average and courses
+        if (h3.textContent.includes('MSc') || h3.textContent.includes('Bachelor')) {
+            const gradeP = h3.nextElementSibling;
+            if (gradeP && gradeP.querySelector('strong')) {
+                gradeP.querySelector('strong').textContent = translations[lang].gradeAverage;
+            }
+
+            const list = h3.nextElementSibling.nextElementSibling;
+            if (list && list.tagName === 'UL') {
+                const courseKey = h3.textContent.includes('MSc') ? 'sussexMscCourses' : 'biCourses';
+                const items = list.querySelectorAll('li');
+                translations[lang][courseKey].forEach((course, index) => {
+                    if (items[index]) items[index].textContent = course;
+                });
+            }
+        }
+    });
     ];
 
     educationMapping.forEach(({ titleMatch, key }) => {
