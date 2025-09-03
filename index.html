@@ -4,6 +4,21 @@
   <meta charset="UTF-8">
   <title>Joakim Martin Torsvik - CV</title>
   <style>
+    .language-switch {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      background-color: #2c3e50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .language-switch:hover {
+      background-color: #34495e;
+    }
     body {
       font-family: 'Segoe UI', sans-serif;
       margin: 40px;
@@ -72,6 +87,8 @@
   </style>
 </head>
 <body>
+
+<button class="language-switch" onclick="toggleLanguage()" id="langSwitch">🇳🇴 Norsk</button>
 
 <img src="profile.jpg" alt="Joakim Martin Torsvik" style="width:150px; border-radius:50%; margin-bottom:20px;">
 
@@ -215,5 +232,80 @@
   </div>
 </div>
 
+<script>
+const translations = {
+  en: {
+    title: "Full-stack Data Scientist & Technical Lead",
+    subtitle: "Data Scientist - Data Engineer - Data Platform Engineer",
+    technicalProficiencies: "Technical Proficiencies",
+    professionalExperience: "Professional Experience",
+    education: "Education",
+    certifications: "Technical Certifications",
+    cloudPlatforms: "Cloud Platforms",
+    bigDataAnalytics: "Big Data & Analytics",
+    programming: "Programming",
+    workflowFrameworks: "Workflow Frameworks",
+    consultantRole: "Consultant Role",
+    gradeAverage: "Grade Average"
+  },
+  no: {
+    title: "Fullstack Data Scientist & Teknisk Lead",
+    subtitle: "Data Scientist - Data Engineer - Data Platform Engineer",
+    technicalProficiencies: "Tekniske Ferdigheter",
+    professionalExperience: "Arbeidserfaring",
+    education: "Utdanning",
+    certifications: "Tekniske Sertifiseringer",
+    cloudPlatforms: "Skyplattformer",
+    bigDataAnalytics: "Big Data & Analyse",
+    programming: "Programmering",
+    workflowFrameworks: "Arbeidsrammeverk",
+    consultantRole: "Konsulentstilling",
+    gradeAverage: "Karaktersnitt"
+  }
+};
+
+let currentLang = 'en';
+
+function toggleLanguage() {
+  currentLang = currentLang === 'en' ? 'no' : 'en';
+  const button = document.getElementById('langSwitch');
+  button.textContent = currentLang === 'en' ? '🇳🇴 Norsk' : '🇬🇧 English';
+  
+  // Update all translatable elements
+  Object.keys(translations[currentLang]).forEach(key => {
+    const elements = document.querySelectorAll(`[data-translate="${key}"]`);
+    elements.forEach(element => {
+      element.textContent = translations[currentLang][key];
+    });
+  });
+}
+
+// Add data-translate attributes when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+  // Add data-translate attributes to elements
+  const elements = {
+    'title': document.querySelector('h2'),
+    'subtitle': document.querySelector('h3'),
+    'technicalProficiencies': document.querySelector('h2:nth-of-type(1)'),
+    'professionalExperience': document.querySelector('div.section:nth-of-type(2) > h2'),
+    'education': document.querySelector('div.section:nth-of-type(3) > h2'),
+    'certifications': document.querySelector('div.section:nth-of-type(4) > h2'),
+    'consultantRole': document.querySelectorAll('p[style*="font-style: italic"]'),
+    'gradeAverage': document.querySelectorAll('p > strong')
+  };
+
+  Object.entries(elements).forEach(([key, element]) => {
+    if (element instanceof NodeList) {
+      element.forEach(el => {
+        if (el.textContent.includes('Grade Average')) {
+          el.setAttribute('data-translate', key);
+        }
+      });
+    } else if (element) {
+      element.setAttribute('data-translate', key);
+    }
+  });
+});
+</script>
 </body>
 </html>
