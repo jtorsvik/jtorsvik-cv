@@ -406,6 +406,26 @@ const translations = {
 
 let currentLang = 'en';
 
+function updateTranslation(element, key) {
+  if (!element || !key) return;
+  
+  try {
+    let translation = translations[currentLang];
+    const keyParts = key.split('.');
+    
+    for (const part of keyParts) {
+      translation = translation[part];
+      if (!translation) break;
+    }
+    
+    if (translation && typeof translation === 'string') {
+      element.textContent = translation;
+    }
+  } catch (error) {
+    console.error(`Translation error for key: ${key}`, error);
+  }
+}
+
 function toggleLanguage() {
   currentLang = currentLang === 'en' ? 'no' : 'en';
   const button = document.getElementById('langSwitch');
