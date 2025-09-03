@@ -246,10 +246,65 @@ const translations = {
     programming: "Programming",
     workflowFrameworks: "Workflow Frameworks",
     consultantRole: "Consultant Role",
-    gradeAverage: "Grade Average"
+    gradeAverage: "Grade Average",
+    // Technical Proficiencies section
+    techSkillsTitle: "🛠️ Technical Proficiencies",
+    cloudPlatformsLabel: "☁️ Cloud Platforms",
+    bigDataLabel: "📊 Big Data & Analytics",
+    programmingLabel: "🐍 Programming",
+    workflowLabel: "🧠 Workflow Frameworks",
+    // Experience section
+    experienceTitle: "💼 Professional Experience",
+    solutionArchitect: "Solution Architect",
+    anonymousClient: "Anonymous Client",
+    present: "Present",
+    // Job descriptions
+    architecturalDesign: "Architectural design for on-premise Spark cluster implementation",
+    developingSecure: "Developing secure analytics platform for sensitive data processing",
+    collaborating: "Collaborating with cross-functional teams to establish data governance standards",
+    optimizingCluster: "Optimizing cluster performance and resource utilization",
+    implementingSecurity: "Implementing security protocols and access controls",
+    // Equinor role
+    fullstackDS: "Full-stack Data Scientist",
+    visualization: "Visualization of IT infrastructure and business data",
+    dataPipeline: "Data pipeline development using Azure Data Factory",
+    dataTransformation: "Data transformation using Python in Databricks",
+    powerBI: "Power BI modeling and visualization",
+    // Bane NOR role
+    specializing: "Specializing in Deep Learning and Computer Vision algorithms",
+    experienceWith: "Experience with streaming and batch data processing",
+    azureSetup: "Azure architecture setup and implementation",
+    // AON role
+    developer: "Developer",
+    crmDev: "Microsoft CRM development and administration",
+    processOpt: "Internal process optimization",
+    analytics: "Ad-hoc analytics for brokers",
+    // Vertikal Helse role
+    financialAssistant: "Financial Assistant",
+    accountsPayable: "Accounts payable management",
+    customerReimbursement: "Customer reimbursement processing",
+    invoiceHandling: "Invoice handling",
+    // Power AS role
+    salesRep: "Part-time Sales Representative",
+    electronicsSales: "Electronics sales specialist",
+    locations: "Locations: Expert Drotningsvik (Bergen) and Power Colosseum (Oslo)",
+    // Education section
+    educationTitle: "🎓 Education",
+    msDataScience: "MSc in Data Science",
+    bachelorFinance: "Bachelor in Finance",
+    subjects: {
+      ml: "Machine Learning",
+      nlp: "Natural Language Processing",
+      cv: "Computer Vision",
+      dsTechniques: "Data Science techniques",
+      financial: "Financial Analytics",
+      corporate: "Corporate Banking",
+      trading: "Trading",
+      economics: "Micro and Macroeconomics"
+    }
   },
   no: {
-    title: "Fullstack Data Scientist & Teknisk Lead",
+    title: "Fullstack Data Scientist & Teknisk Leder",
     subtitle: "Data Scientist - Data Engineer - Data Platform Engineer",
     technicalProficiencies: "Tekniske Ferdigheter",
     professionalExperience: "Arbeidserfaring",
@@ -260,7 +315,62 @@ const translations = {
     programming: "Programmering",
     workflowFrameworks: "Arbeidsrammeverk",
     consultantRole: "Konsulentstilling",
-    gradeAverage: "Karaktersnitt"
+    gradeAverage: "Karaktersnitt",
+    // Technical Proficiencies section
+    techSkillsTitle: "🛠️ Tekniske Ferdigheter",
+    cloudPlatformsLabel: "☁️ Skyplattformer",
+    bigDataLabel: "📊 Big Data & Analyse",
+    programmingLabel: "🐍 Programmering",
+    workflowLabel: "🧠 Arbeidsmetodikk",
+    // Experience section
+    experienceTitle: "💼 Arbeidserfaring",
+    solutionArchitect: "Løsningsarkitekt",
+    anonymousClient: "Anonym Kunde",
+    present: "Nåværende",
+    // Job descriptions
+    architecturalDesign: "Arkitekturdesign for implementering av Spark-cluster på stedet",
+    developingSecure: "Utvikling av sikker analyseplattform for behandling av sensitiv data",
+    collaborating: "Samarbeid med tverrfaglige team for å etablere datastyringstandarder",
+    optimizingCluster: "Optimalisering av clusterytelse og ressursutnyttelse",
+    implementingSecurity: "Implementering av sikkerhetsprotokoller og tilgangskontroll",
+    // Equinor role
+    fullstackDS: "Fullstack Data Scientist",
+    visualization: "Visualisering av IT-infrastruktur og forretningsdata",
+    dataPipeline: "Utvikling av datapipelines med Azure Data Factory",
+    dataTransformation: "Datatransformasjon med Python i Databricks",
+    powerBI: "Power BI modellering og visualisering",
+    // Bane NOR role
+    specializing: "Spesialisering innen dyplæring og datasynsalgoritmer",
+    experienceWith: "Erfaring med strømmende og batch databehandling",
+    azureSetup: "Azure-arkitektur oppsett og implementering",
+    // AON role
+    developer: "Utvikler",
+    crmDev: "Microsoft CRM-utvikling og administrasjon",
+    processOpt: "Intern prosessoptimalisering",
+    analytics: "Ad-hoc analyse for meglere",
+    // Vertikal Helse role
+    financialAssistant: "Økonomiassistent",
+    accountsPayable: "Behandling av leverandørgjeld",
+    customerReimbursement: "Behandling av kunderefusjoner",
+    invoiceHandling: "Fakturahåndtering",
+    // Power AS role
+    salesRep: "Deltids Salgsrepresentant",
+    electronicsSales: "Elektronikkspesialist",
+    locations: "Lokasjon: Expert Drotningsvik (Bergen) og Power Colosseum (Oslo)",
+    // Education section
+    educationTitle: "🎓 Utdanning",
+    msDataScience: "MSc i Data Science",
+    bachelorFinance: "Bachelor i Finans",
+    subjects: {
+      ml: "Maskinlæring",
+      nlp: "Naturlig språkprosessering",
+      cv: "Datasyn",
+      dsTechniques: "Data Science-teknikker",
+      financial: "Finansanalyse",
+      corporate: "Bedriftsbank",
+      trading: "Trading",
+      economics: "Mikro- og Makroøkonomi"
+    }
   }
 };
 
@@ -283,16 +393,69 @@ function toggleLanguage() {
 // Add data-translate attributes when the page loads
 document.addEventListener('DOMContentLoaded', () => {
   // Add data-translate attributes to elements
-  const elements = {
-    'title': document.querySelector('h2'),
-    'subtitle': document.querySelector('h3'),
-    'technicalProficiencies': document.querySelector('h2:nth-of-type(1)'),
-    'professionalExperience': document.querySelector('div.section:nth-of-type(2) > h2'),
-    'education': document.querySelector('div.section:nth-of-type(3) > h2'),
-    'certifications': document.querySelector('div.section:nth-of-type(4) > h2'),
-    'consultantRole': document.querySelectorAll('p[style*="font-style: italic"]'),
-    'gradeAverage': document.querySelectorAll('p > strong')
-  };
+  function addTranslateAttribute(selector, key) {
+    const elements = document.querySelectorAll(selector);
+    elements.forEach(el => el.setAttribute('data-translate', key));
+  }
+
+  // Main sections and titles
+  addTranslateAttribute('h2:first-of-type', 'title');
+  addTranslateAttribute('h3:first-of-type', 'subtitle');
+  addTranslateAttribute('.section h2', 'technicalProficiencies');
+  
+  // Technical proficiencies section
+  addTranslateAttribute('strong:contains("Cloud Platforms")', 'cloudPlatformsLabel');
+  addTranslateAttribute('strong:contains("Big Data & Analytics")', 'bigDataLabel');
+  addTranslateAttribute('strong:contains("Programming")', 'programmingLabel');
+  addTranslateAttribute('strong:contains("Workflow Frameworks")', 'workflowLabel');
+
+  // Experience section
+  document.querySelectorAll('.role').forEach(role => {
+    const title = role.querySelector('h4');
+    if (title) {
+      if (title.textContent.includes('Solution Architect')) {
+        title.setAttribute('data-translate', 'solutionArchitect');
+      } else if (title.textContent.includes('Full-stack Data Scientist')) {
+        title.setAttribute('data-translate', 'fullstackDS');
+      }
+    }
+  });
+
+  // Job descriptions
+  document.querySelectorAll('.role ul li').forEach(li => {
+    const text = li.textContent.trim();
+    const translationKey = Object.keys(translations.en).find(key => 
+      translations.en[key] === text
+    );
+    if (translationKey) {
+      li.setAttribute('data-translate', translationKey);
+    }
+  });
+
+  // Education section
+  const educationSection = document.querySelector('.section:nth-of-type(3)');
+  if (educationSection) {
+    const eduTitles = educationSection.querySelectorAll('h3');
+    eduTitles.forEach(title => {
+      if (title.textContent.includes('MSc')) {
+        title.setAttribute('data-translate', 'msDataScience');
+      } else if (title.textContent.includes('Bachelor')) {
+        title.setAttribute('data-translate', 'bachelorFinance');
+      }
+    });
+
+    educationSection.querySelectorAll('ul li').forEach(li => {
+      const text = li.textContent.trim();
+      Object.entries(translations.en.subjects).forEach(([key, value]) => {
+        if (text === value) {
+          li.setAttribute('data-translate', `subjects.${key}`);
+        }
+      });
+    });
+  }
+
+  // Update grade average labels
+  addTranslateAttribute('p > strong:contains("Grade Average")', 'gradeAverage');
 
   Object.entries(elements).forEach(([key, element]) => {
     if (element instanceof NodeList) {
