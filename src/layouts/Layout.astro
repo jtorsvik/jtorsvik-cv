@@ -1,8 +1,18 @@
 ---
 interface Props {
   title?: string;
+  description?: string;
+  ogImage?: string;
 }
-const { title = 'CV – Joakim Martin Torsvik' } = Astro.props;
+
+const {
+  title       = 'CV – Joakim Martin Torsvik',
+  description = 'Data Scientist, Data Engineer, and Technical Lead with 8+ years of experience in cloud-native data platforms on Azure and Databricks.',
+  ogImage     = 'https://jtorsvik.github.io/jtorsvik-cv/profile.jpg',
+} = Astro.props;
+
+const canonicalURL  = 'https://jtorsvik.github.io/jtorsvik-cv';
+const base          = import.meta.env.BASE_URL;
 ---
 
 <!doctype html>
@@ -10,8 +20,28 @@ const { title = 'CV – Joakim Martin Torsvik' } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="CV of Joakim Martin Torsvik – Data Scientist, Data Engineer, Technical Lead" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph -->
+    <meta property="og:type"        content="website" />
+    <meta property="og:url"         content={canonicalURL} />
+    <meta property="og:title"       content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image"       content={ogImage} />
+
+    <!-- Twitter / X card -->
+    <meta name="twitter:card"        content="summary_large_image" />
+    <meta name="twitter:title"       content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image"       content={ogImage} />
+
     <title>{title}</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

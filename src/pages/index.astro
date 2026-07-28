@@ -1,172 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
-// ─── Types ───────────────────────────────────────────────────────────────────
-interface Engagement {
-  title: string;
-  client: string;
-  logo?: string;
-  period: string;
-  bullets: string[];
-}
-
-interface Experience {
-  employer: string;
-  logo: string;
-  role: string;
-  period: string;
-  type: 'consulting' | 'direct';
-  engagements?: Engagement[];
-  bullets?: string[];
-}
-
-interface Education {
-  degree: string;
-  institution: string;
-  period: string;
-  grade: string;
-  subjects: string[];
-}
-
-type CertProvider = 'databricks' | 'azure' | 'terraform' | 'dasca' | 'itil';
-
-interface Cert {
-  name: string;
-  date: string;
-  provider: CertProvider;
-}
-
-// ─── Data ────────────────────────────────────────────────────────────────────
-const experiences: Experience[] = [
-  {
-    employer: 'Sopra Steria',
-    logo: '/sopra_steria.jpg',
-    role: 'Data Scientist Consultant',
-    period: 'Aug 2022 – Nov 2023  ·  May 2025 – Present',
-    type: 'consulting',
-    engagements: [
-      {
-        title: 'Solution Architect',
-        client: 'Anonymous Client',
-        period: 'Aug 2025 – Present',
-        bullets: [
-          'Architectural design for on-premise Spark cluster implementation',
-          'Developing secure analytics platform for sensitive data processing',
-          'Collaborating with cross-functional teams to establish data governance standards',
-          'Optimizing cluster performance and resource utilization',
-          'Implementing security protocols and access controls',
-        ],
-      },
-      {
-        title: 'Data Scientist',
-        client: 'Bane NOR',
-        logo: '/bane_nor.jpg',
-        period: 'Nov 2023 – May 2025',
-        bullets: [
-          'Specializing in Deep Learning and Computer Vision algorithms',
-          'Experience with streaming and batch data processing',
-          'Azure architecture setup and implementation',
-        ],
-      },
-      {
-        title: 'Full-stack Data Scientist',
-        client: 'Equinor',
-        logo: '/equinor.jpg',
-        period: 'Aug 2022 – Nov 2023',
-        bullets: [
-          'Visualization of IT infrastructure and business data',
-          'Data pipeline development using Azure Data Factory',
-          'Data transformation using Python in Databricks',
-          'Power BI modeling and visualization',
-        ],
-      },
-    ],
-  },
-  {
-    employer: 'AON Norway AS',
-    logo: '/aon.jpg',
-    role: 'Developer',
-    period: 'Sep 2018 – Jul 2022',
-    type: 'direct',
-    bullets: [
-      'Microsoft CRM development and administration',
-      'Internal process optimization',
-      'Ad-hoc analytics for brokers',
-    ],
-  },
-  {
-    employer: 'IF / Vertikal Helse',
-    logo: '/vertikal_helse.jpg',
-    role: 'Financial Assistant',
-    period: 'Jul 2017 – Sep 2018',
-    type: 'direct',
-    bullets: [
-      'Accounts payable management',
-      'Customer reimbursement processing',
-      'Invoice handling',
-    ],
-  },
-  {
-    employer: 'POWER AS',
-    logo: '/power.jpg',
-    role: 'Part-time Sales Representative',
-    period: 'Nov 2014 – Sep 2017',
-    type: 'direct',
-    bullets: [
-      'Electronics sales specialist',
-      'Locations: Expert Drotningsvik (Bergen) and Power Colosseum (Oslo)',
-    ],
-  },
-];
-
-const education: Education[] = [
-  {
-    degree: 'MSc in Data Science',
-    institution: 'University of Sussex',
-    period: '2021 – 2022',
-    grade: 'B (65%)',
-    subjects: ['Machine Learning', 'Natural Language Processing', 'Computer Vision', 'Data Science Techniques'],
-  },
-  {
-    degree: 'Bachelor in Finance',
-    institution: 'BI Norwegian Business School',
-    period: '2015 – 2018',
-    grade: 'C',
-    subjects: ['Financial Analytics', 'Corporate Banking', 'Trading', 'Micro and Macroeconomics'],
-  },
-];
-
-const certifications: Cert[] = [
-  { name: 'Terraform Practitioner',                             date: 'Aug 2025', provider: 'terraform'  },
-  { name: 'DASCA: Senior Data Scientist',                       date: 'Nov 2024', provider: 'dasca'      },
-  { name: 'Databricks: Machine Learning Engineer Professional', date: 'Sep 2025', provider: 'databricks' },
-  { name: 'Databricks: Generative AI Engineer',                 date: 'Mar 2025', provider: 'databricks' },
-  { name: 'Databricks: Machine Learning Engineer Associate',    date: 'Mar 2023', provider: 'databricks' },
-  { name: 'Databricks: Data Engineering Associate',             date: 'May 2023', provider: 'databricks' },
-  { name: 'AI-102: Azure AI Engineer',                          date: 'Feb 2023', provider: 'azure'      },
-  { name: 'AI-900: Azure AI Fundamentals',                      date: 'Jan 2023', provider: 'azure'      },
-  { name: 'DP-100: Data Science on Azure',                      date: 'Sep 2022', provider: 'azure'      },
-  { name: 'DP-203: Azure Data Engineer',                        date: 'Jun 2023', provider: 'azure'      },
-  { name: 'PL-300: Power BI Analyst',                           date: 'Dec 2022', provider: 'azure'      },
-  { name: 'AZ-104: Azure Administrator',                        date: 'Feb 2023', provider: 'azure'      },
-  { name: 'DP-900: Azure Data Fundamentals',                    date: 'Sep 2022', provider: 'azure'      },
-  { name: 'ITIL 4 Foundation',                                  date: 'Jan 2023', provider: 'itil'       },
-];
-
-const providerMeta: Record<CertProvider, { bg: string; border: string; text: string; label: string }> = {
-  databricks: { bg: '#fff5f5', border: '#FF3621', text: '#b91c1c', label: 'Databricks'       },
-  azure:      { bg: '#eff7ff', border: '#0078D4', text: '#005a9e', label: 'Microsoft Azure'  },
-  terraform:  { bg: '#f5f3ff', border: '#7B42BC', text: '#5b21b6', label: 'HashiCorp'        },
-  dasca:      { bg: '#fffbeb', border: '#d97706', text: '#92400e', label: 'DASCA'             },
-  itil:       { bg: '#f0fdf4', border: '#059669', text: '#065f46', label: 'AXELOS'            },
-};
-
-const skillCategories = [
-  { name: '☁️ Cloud Platforms',    skills: ['Azure', 'AWS'] },
-  { name: '📊 Big Data & Analytics', skills: ['Databricks', 'Apache Spark', 'HPE Data Fabric', 'Microsoft Fabric', 'Power BI', 'Grafana'] },
-  { name: '🐍 Programming',         skills: ['Python', 'SQL / T-SQL / KQL', 'Terraform', 'Bash', 'PowerShell', 'GitHub Actions'] },
-  { name: '🧠 Workflow & Process',   skills: ['SCRUM', 'Kanban', 'Product Management', 'MLOps', 'DevOps', 'GenAI-Ops'] },
-];
+import {
+  summary,
+  socialLinks,
+  experiences,
+  education,
+  certifications,
+  providerMeta,
+  skillCategories,
+} from '../data/cv.ts';
 
 // Prefix public/ assets with the deployment base path
 const asset = (path: string) => import.meta.env.BASE_URL + path.replace(/^\//, '');
@@ -187,6 +29,17 @@ const asset = (path: string) => import.meta.env.BASE_URL + path.replace(/^\//, '
           <span class="contact-pill">📍 Oslo, Norway</span>
           <a href="tel:+4745467412" class="contact-pill">📞 +47 454 67 412</a>
           <a href="mailto:joakim.torsvik@icloud.com" class="contact-pill">✉️ joakim.torsvik@icloud.com</a>
+          {socialLinks.map(link => (
+            <a href={link.href} target="_blank" rel="noopener noreferrer" class="contact-pill contact-pill--social">
+              {link.icon === 'linkedin' && (
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+              )}
+              {link.icon === 'github' && (
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.48 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013.01-.4c1.02 0 2.04.13 3 .4 2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.3c0 .32.22.69.82.57C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              )}
+              {link.label}
+            </a>
+          ))}
         </div>
 
         <div class="lang-row">
@@ -198,7 +51,35 @@ const asset = (path: string) => import.meta.env.BASE_URL + path.replace(/^\//, '
     </div>
   </header>
 
+  <!-- ══════════════════════════ STICKY NAV ══════════════════════════════════ -->
+  <nav class="site-nav" aria-label="CV sections">
+    <div class="site-nav-inner">
+      <div class="nav-links">
+        <a href="#summary"        class="nav-link">Profile</a>
+        <a href="#skills"         class="nav-link">Skills</a>
+        <a href="#experience"     class="nav-link">Experience</a>
+        <a href="#education"      class="nav-link">Education</a>
+        <a href="#certifications" class="nav-link">Certifications</a>
+      </div>
+      <button id="download-btn" class="btn-download" aria-label="Download CV as PDF">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download PDF
+      </button>
+    </div>
+  </nav>
+
   <main class="page">
+
+    <!-- ══════════════════════════ SUMMARY ═════════════════════════════════ -->
+    <section class="section" id="summary">
+      <div class="section-heading">
+        <span class="section-icon">👤</span>
+        <h2>Profile</h2>
+      </div>
+      <div class="summary-card">
+        <p class="summary-text">{summary}</p>
+      </div>
+    </section>
 
     <!-- ══════════════════════════ SKILLS ══════════════════════════════════ -->
     <section class="section" id="skills">
@@ -257,7 +138,10 @@ const asset = (path: string) => import.meta.env.BASE_URL + path.replace(/^\//, '
                         }
                         <div>
                           <p class="engagement-title">{eng.title}</p>
-                          <p class="engagement-client">{eng.client}</p>
+                          <p class="engagement-client">
+                            {eng.client}
+                            {eng.industry && <span class="engagement-industry"> · {eng.industry}</span>}
+                          </p>
                           <p class="engagement-period">{eng.period}</p>
                         </div>
                       </div>
@@ -332,6 +216,30 @@ const asset = (path: string) => import.meta.env.BASE_URL + path.replace(/^\//, '
   </footer>
 
 </Layout>
+
+<script>
+  // ── Download PDF ─────────────────────────────────────────────────────────
+  document.getElementById('download-btn')?.addEventListener('click', () => window.print());
+
+  // ── Active nav link via Intersection Observer ────────────────────────────
+  const sections = document.querySelectorAll<HTMLElement>('section[id]');
+  const navLinks  = document.querySelectorAll<HTMLAnchorElement>('.nav-link');
+
+  const observer = new IntersectionObserver(
+    entries => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          navLinks.forEach(l =>
+            l.classList.toggle('active', l.getAttribute('href') === `#${entry.target.id}`)
+          );
+        }
+      }
+    },
+    { rootMargin: '-15% 0px -70% 0px' },
+  );
+
+  sections.forEach(s => observer.observe(s));
+</script>
 
 <style>
   /* ─── HERO ───────────────────────────────────────────────────────────────── */
@@ -431,6 +339,75 @@ const asset = (path: string) => import.meta.env.BASE_URL + path.replace(/^\//, '
     font-weight: 500;
   }
 
+  /* ─── STICKY NAV ─────────────────────────────────────────────────────────── */
+  .site-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.06);
+  }
+
+  .site-nav-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .nav-links::-webkit-scrollbar { display: none; }
+
+  .nav-link {
+    padding: 0.85rem 0.9rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-decoration: none;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: color 0.15s, border-color 0.15s;
+  }
+
+  .nav-link:hover { color: var(--text); }
+
+  .nav-link.active {
+    color: var(--blue);
+    border-bottom-color: var(--blue);
+  }
+
+  .btn-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: var(--blue);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.45rem 0.9rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-family: var(--font);
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.2s, transform 0.1s;
+  }
+
+  .btn-download:hover  { background: var(--blue-dark); transform: translateY(-1px); }
+  .btn-download:active { transform: translateY(0); }
+
   /* ─── PAGE LAYOUT ────────────────────────────────────────────────────────── */
   .page {
     max-width: 900px;
@@ -462,6 +439,24 @@ const asset = (path: string) => import.meta.env.BASE_URL + path.replace(/^\//, '
     font-weight: 700;
     color: var(--text);
     letter-spacing: -0.015em;
+  }
+
+  /* ─── SUMMARY ────────────────────────────────────────────────────────────── */
+  .summary-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 1.4rem 1.6rem;
+    border-left: 4px solid var(--blue);
+    border-top: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow);
+  }
+
+  .summary-text {
+    font-size: 0.96rem;
+    color: var(--text-secondary);
+    line-height: 1.75;
   }
 
   /* ─── SKILLS ─────────────────────────────────────────────────────────────── */
@@ -699,6 +694,11 @@ const asset = (path: string) => import.meta.env.BASE_URL + path.replace(/^\//, '
     margin-top: 0.1rem;
   }
 
+  .engagement-industry {
+    font-weight: 400;
+    color: var(--text-muted);
+  }
+
   .engagement-period {
     font-size: 0.77rem;
     color: var(--text-muted);
@@ -825,20 +825,57 @@ const asset = (path: string) => import.meta.env.BASE_URL + path.replace(/^\//, '
       justify-content: center;
     }
 
-    .hero-name {
-      font-size: 1.9rem;
-    }
+    .hero-name   { font-size: 1.9rem; }
+    .timeline    { padding-left: 1.35rem; }
+    .nav-link    { padding: 0.85rem 0.65rem; font-size: 0.78rem; }
+    .btn-download { font-size: 0.75rem; padding: 0.4rem 0.7rem; }
 
-    .timeline {
-      padding-left: 1.35rem;
-    }
-
-    .skills-grid {
-      grid-template-columns: 1fr;
-    }
-
+    .skills-grid,
     .cert-grid {
       grid-template-columns: 1fr;
     }
+  }
+
+  /* ─── PRINT ────────────────────────────────────────────────────────────── */
+  @media print {
+    .site-nav,
+    .btn-download,
+    .footer {
+      display: none !important;
+    }
+
+    .hero {
+      background: #0f172a !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      padding: 1.5rem !important;
+    }
+
+    .page { padding: 0.75rem 0 !important; }
+
+    .exp-card,
+    .edu-card,
+    .cert-badge,
+    .skill-card,
+    .summary-card {
+      box-shadow: none !important;
+      break-inside: avoid;
+    }
+
+    .exp-card:hover,
+    .edu-card:hover,
+    .cert-badge:hover,
+    .engagement-card:hover {
+      transform: none !important;
+      box-shadow: none !important;
+    }
+
+    .timeline-entry,
+    .engagement-card,
+    .section {
+      break-inside: avoid;
+    }
+
+    a { text-decoration: none; color: inherit; }
   }
 </style>
