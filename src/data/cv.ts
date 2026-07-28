@@ -1,6 +1,9 @@
 // ─── Professional Summary ─────────────────────────────────────────────────────
-export const summary =
-  'Data Scientist and Data Engineer with over 8 years of experience across financial services, energy, and public transport sectors. Specialised in cloud-native data platform architecture on Azure and Databricks, delivering end-to-end ML pipelines, computer vision systems, and real-time analytics infrastructure. Currently a Consultant at Sopra Steria, with a track record of leading cross-functional teams and translating complex data requirements into scalable, production-ready solutions. Holds an MSc in Data Science and 14 professional certifications across Databricks, Microsoft Azure, and related disciplines.';
+export const summary = `Joakim Martin Torsvik er en erfaren Senior Full-Stack Data Scientist med 6 års erfaring innen data og analyse fra ulike sektorer. Med mastergrad i Data Science og bachelorgrad i Finans, har han jobbet for store selskaper som Equinor, Bane NOR, Statens Vegvesen og Aon. Her har han løst komplekse analytiske og maskinlæringsproblemer, samt vært med på å bygge store dataplattformer som har kapabilitet til å løse tunge og komplekse bedriftsutfordringer.
+
+Joakim har omfattende erfaring med state-of-the-art teknologier som Azure, Databricks, Apache Spark og Kafka og mer. Han har utviklet ende-til-ende ETL/ELT-pipelines, Structured Streaming og maskinlæringsmodeller, med fokus på Python og SQL for datamodellering og transformasjon. Han har også bygget store skybaserte dataplattformer for Data Engineering og Data Science hvor fokuset har vært på skalerbarhet, nasjonale sikkerhetsrutiner og rask og kvalitetssikret utvikling.
+
+Kolleger beskriver Joakim som kunnskapsrik og engasjert, med evne til effektiv kommunikasjon på tvers av tekniske nivåer. Han har ledet store AI-prosjekter og er kjent for strukturert arbeidsmetodikk og høykvalitetsleveranser. Joakim trives med å se helheten i prosjekter og kan bidra alt innen prosjektledelse til direkte utvikling som Data Engineer eller Data Scientist.`;
 
 // ─── Social / Contact Links ───────────────────────────────────────────────────
 export type SocialIcon = 'linkedin' | 'github';

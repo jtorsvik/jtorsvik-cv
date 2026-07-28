@@ -11,7 +11,8 @@ import {
 } from '../data/cv.ts';
 
 // Prefix public/ assets with the deployment base path
-const asset = (path: string) => import.meta.env.BASE_URL + path.replace(/^\//, '');
+const asset = (path: string) =>
+  import.meta.env.BASE_URL.replace(/\/?$/, '') + '/' + path.replace(/^\//, '');
 ---
 
 <Layout>
@@ -77,7 +78,9 @@ const asset = (path: string) => import.meta.env.BASE_URL + path.replace(/^\//, '
         <h2>Profile</h2>
       </div>
       <div class="summary-card">
-        <p class="summary-text">{summary}</p>
+        {summary.split('\n\n').map(para => (
+          <p class="summary-text">{para}</p>
+        ))}
       </div>
     </section>
 
@@ -457,6 +460,10 @@ const asset = (path: string) => import.meta.env.BASE_URL + path.replace(/^\//, '
     font-size: 0.96rem;
     color: var(--text-secondary);
     line-height: 1.75;
+  }
+
+  .summary-text + .summary-text {
+    margin-top: 0.9rem;
   }
 
   /* ─── SKILLS ─────────────────────────────────────────────────────────────── */
