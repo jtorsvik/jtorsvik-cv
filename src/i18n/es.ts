@@ -18,6 +18,9 @@ export const es: Locale = {
     sectionCertifications:'Certificaciones técnicas',
     clientEngagements:    'Proyectos para clientes',
     gradeAverage:         'Nota media',
+    langNative:           'Noruego (nativo)',
+    langFluent:           'Inglés (fluido)',
+    langB2:               'Español (B2)',
   },
 
   heroTitle:    'Científico de Datos · Ingeniero de Datos · Líder Técnico',

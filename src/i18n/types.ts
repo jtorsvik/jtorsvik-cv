@@ -14,6 +14,9 @@ export interface UIStrings {
   sectionCertifications: string;
   clientEngagements: string;
   gradeAverage: string;
+  langNative: string;
+  langFluent: string;
+  langB2: string;
 }
 
 export interface EngagementLocale {

@@ -18,6 +18,9 @@ export const no: Locale = {
     sectionCertifications:'Tekniske sertifiseringer',
     clientEngagements:    'Kundeengasjementer',
     gradeAverage:         'Karaktersnitt',
+    langNative:           'Norsk (morsmål)',
+    langFluent:           'Engelsk (flytende)',
+    langB2:               'Spansk (B2)',
   },
 
   heroTitle:    'Data Scientist · Data Engineer · Teknisk Leder',
