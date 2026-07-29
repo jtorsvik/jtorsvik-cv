@@ -49,8 +49,8 @@ export const en: Locale = {
         {
           title: 'Solution Architect',
           bullets: [
-            'Designed on-premise Apache Spark cluster architecture for a regulated financial services client, ensuring data sovereignty and compliance with internal security policies',
-            'Built a secure analytics platform for processing sensitive financial data, incorporating end-to-end encryption and role-based access control',
+          'Designed on-premise Apache Spark cluster architecture for a regulated defence & security client, ensuring data sovereignty and compliance with national security policies',
+          'Built a secure analytics platform for processing sensitive classified data, incorporating end-to-end encryption and role-based access control',
             'Defined data governance standards and cataloguing policies adopted across the organisation\'s engineering teams',
             'Optimised cluster resource allocation and partition strategies to improve workload throughput and reduce query latency',
             'Implemented security protocols and access control frameworks aligned with enterprise compliance requirements',

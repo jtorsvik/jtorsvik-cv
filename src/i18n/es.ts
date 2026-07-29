@@ -49,8 +49,8 @@ export const es: Locale = {
         {
           title: 'Arquitecto de Soluciones',
           bullets: [
-            'Diseñó la arquitectura de clúster Apache Spark on-premise para un cliente regulado del sector financiero, garantizando la soberanía de datos y el cumplimiento de políticas de seguridad internas',
-            'Desarrolló una plataforma de análisis segura para el procesamiento de datos financieros sensibles, con cifrado de extremo a extremo y control de acceso basado en roles',
+          'Diseñó la arquitectura de clúster Apache Spark on-premise para un cliente regulado del sector de defensa y seguridad, garantizando la soberanía de datos y el cumplimiento de políticas de seguridad nacional',
+          'Desarrolló una plataforma de análisis segura para el procesamiento de datos clasificados sensibles, con cifrado de extremo a extremo y control de acceso basado en roles',
             'Definió estándares de gobernanza de datos y políticas de catalogación adoptadas por los equipos de ingeniería de la organización',
             'Optimizó la asignación de recursos del clúster y las estrategias de particionado para mejorar el rendimiento y reducir la latencia de consultas',
             'Implementó protocolos de seguridad y marcos de control de acceso alineados con los requisitos de cumplimiento empresarial',

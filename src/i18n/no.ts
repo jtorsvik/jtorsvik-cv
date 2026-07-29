@@ -49,8 +49,8 @@ export const no: Locale = {
         {
           title: 'Løsningsarkitekt',
           bullets: [
-            'Utformet on-premise Apache Spark-klyngearkitektur for en regulert finanskunde, med fokus på datasuverenitet og overholdelse av interne sikkerhetspolicyer',
-            'Bygget en sikker analyseplattform for behandling av sensitiv finansiell data, med end-to-end-kryptering og rollebasert tilgangskontroll',
+            'Utformet on-premise Apache Spark-klyngearkitektur for en regulert forsvars- og sikkerhetskunde, med fokus på datasuverenitet og overholdelse av nasjonale sikkerhetspolicyer',
+            'Bygget en sikker analyseplattform for behandling av sensitiv klassifisert data, med end-to-end-kryptering og rollebasert tilgangskontroll',
             'Definerte datakvalitetsstandarder og katalogiseringspolicyer adoptert av organisasjonens ingeniørteam',
             'Optimaliserte ressursallokering og partisjonsstrategier i klyngen for å forbedre gjennomstrømming og redusere spørringsforsinkelse',
             'Implementerte sikkerhetsprotokoll og rammeverk for tilgangskontroll i tråd med virksomhetens krav til etterlevelse',
