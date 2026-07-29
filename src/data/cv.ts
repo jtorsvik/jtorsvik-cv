@@ -50,7 +50,7 @@ export const experiences: Experience[] = [
       {
         title: 'Technical Lead – Saga Data Platform',
         client: 'Statens Vegvesen',
-        logo: '/svv.jpg',
+        logo: '/Statens_vegvesen_logo.png',
         industry: 'Public Roads Administration',
         period: 'Mars 2026 – August 2026',
         bullets: [
