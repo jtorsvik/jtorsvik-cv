@@ -48,10 +48,24 @@ export const experiences: Experience[] = [
     type: 'consulting',
     engagements: [
       {
+        title: 'Technical Lead – Saga Data Platform',
+        client: 'Statens Vegvesen',
+        logo: '/svv.jpg',
+        industry: 'Public Roads Administration',
+        period: 'Mars 2026 – August 2026',
+        bullets: [
+          'Led the establishment of a centralised Databricks data platform (Saga) for Statens Vegvesen, owning architecture design and end-to-end technical delivery',
+          'Implemented Data Catalog and standardised integration pipelines, making complex multi-source data discoverable and accessible across the organisation',
+          'Led CI/CD pipeline development for the platform, enabling automated testing and deployment and ensuring high operational stability',
+          'Shaped the overall IT architecture and coordinated technical requirements with domain experts across multiple business units',
+          'Drove data quality standards and governed delivery processes to ensure the platform delivers high-value, reliable insights for organisational decision-making',
+        ],
+      },
+      {
         title: 'Solution Architect',
         client: 'Confidential Client',
         industry: 'Financial Services',
-        period: 'Aug 2025 – Present',
+        period: 'Aug 2025 - Mars 2026',
         bullets: [
           'Designed on-premise Apache Spark cluster architecture for a regulated financial services client, ensuring data sovereignty and compliance with internal security policies',
           'Built a secure analytics platform for processing sensitive financial data, incorporating end-to-end encryption and role-based access control',
