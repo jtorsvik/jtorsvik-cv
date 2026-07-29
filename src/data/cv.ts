@@ -44,15 +44,15 @@ export const experiences: Experience[] = [
     employer: 'Sopra Steria',
     logo: '/sopra_steria.jpg',
     role: 'Data Scientist Consultant',
-    period: 'Aug 2022 – Nov 2023  ·  May 2025 – Present',
+    period: 'Aug 2022 - Nov 2023  ·  May 2025 - Present',
     type: 'consulting',
     engagements: [
       {
-        title: 'Technical Lead – Saga Data Platform',
+        title: 'Technical Lead - Saga Data Platform',
         client: 'Statens Vegvesen',
         logo: '/Statens_vegvesen_logo.png',
         industry: 'Public Roads Administration',
-        period: 'Mars 2026 – August 2026',
+        period: 'Mar 2026 - Aug 2026',
         bullets: [
           'Led the establishment of a centralised Databricks data platform (Saga) for Statens Vegvesen, owning architecture design and end-to-end technical delivery',
           'Implemented Data Catalog and standardised integration pipelines, making complex multi-source data discoverable and accessible across the organisation',
@@ -65,7 +65,7 @@ export const experiences: Experience[] = [
         title: 'Solution Architect',
         client: 'Confidential Client',
         industry: 'Defence & Security',
-        period: 'Aug 2025 - Mars 2026',
+        period: 'Aug 2025 - Mar 2026',
         bullets: [
           'Designed on-premise Apache Spark cluster architecture for a regulated defence & security client, ensuring data sovereignty and compliance with national security policies',
           'Built a secure analytics platform for processing sensitive classified data, incorporating end-to-end encryption and role-based access control',
@@ -78,7 +78,7 @@ export const experiences: Experience[] = [
         title: 'Data Scientist',
         client: 'Bane NOR',
         logo: '/bane_nor.jpg',
-        period: 'Nov 2023 – May 2025',
+        period: 'Nov 2023 - May 2025',
         bullets: [
           'Engineered Deep Learning and Computer Vision pipelines for railway infrastructure inspection using YOLO-based object detection models',
           'Built real-time streaming (Azure Event Hubs) and batch processing workflows for sensor and operational railway data',
@@ -89,7 +89,7 @@ export const experiences: Experience[] = [
         title: 'Full-stack Data Scientist',
         client: 'Equinor',
         logo: '/equinor.jpg',
-        period: 'Aug 2022 – Nov 2023',
+        period: 'Aug 2022 - Nov 2023',
         bullets: [
           'Built interactive Power BI dashboards visualising IT infrastructure health and business KPIs for executive and operational stakeholders',
           'Developed and maintained Azure Data Factory pipelines ingesting operational data from multiple heterogeneous source systems',
@@ -103,7 +103,7 @@ export const experiences: Experience[] = [
     employer: 'AON Norway AS',
     logo: '/aon.jpg',
     role: 'Developer',
-    period: 'Sep 2018 – Jul 2022',
+    period: 'Sep 2018 - Jul 2022',
     type: 'direct',
     bullets: [
       'Developed and customised Microsoft Dynamics CRM modules, streamlining broker workflows and reducing manual processing time',
@@ -115,7 +115,7 @@ export const experiences: Experience[] = [
     employer: 'IF / Vertikal Helse',
     logo: '/vertikal_helse.jpg',
     role: 'Financial Assistant',
-    period: 'Jul 2017 – Sep 2018',
+    period: 'Jul 2017 - Sep 2018',
     type: 'direct',
     bullets: [
       'Managed accounts payable cycle for insurance-related healthcare reimbursements in a regulated environment',
@@ -127,7 +127,7 @@ export const experiences: Experience[] = [
     employer: 'POWER AS',
     logo: '/power.jpg',
     role: 'Part-time Sales Representative',
-    period: 'Nov 2014 – Sep 2017',
+    period: 'Nov 2014 - Sep 2017',
     type: 'direct',
     bullets: [
       'Delivered expert product advice on consumer electronics at Expert Drotningsvik (Bergen) and Power Colosseum (Oslo)',
@@ -149,14 +149,14 @@ export const education: Education[] = [
   {
     degree: 'MSc in Data Science',
     institution: 'University of Sussex',
-    period: '2021 – 2022',
+    period: '2021 - 2022',
     grade: 'B (65%)',
     subjects: ['Machine Learning', 'Natural Language Processing', 'Computer Vision', 'Data Science Techniques'],
   },
   {
     degree: 'Bachelor in Finance',
     institution: 'BI Norwegian Business School',
-    period: '2015 – 2018',
+    period: '2015 - 2018',
     grade: 'C',
     subjects: ['Financial Analytics', 'Corporate Banking', 'Trading', 'Micro and Macroeconomics'],
   },
