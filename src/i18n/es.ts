@@ -50,7 +50,7 @@ export const es: Locale = {
         },
         // 1 – Confidential Client
         {
-          title: 'Arquitecto de Soluciones',
+          title: 'Desarrollador Senior de Plataformas de Datos / Arquitecto de Plataformas',
           bullets: [
           'Diseñó la arquitectura de clúster Apache Spark on-premise para un cliente regulado del sector de defensa y seguridad, garantizando la soberanía de datos y el cumplimiento de políticas de seguridad nacional',
           'Desarrolló una plataforma de análisis segura para el procesamiento de datos clasificados sensibles, con cifrado de extremo a extremo y control de acceso basado en roles',

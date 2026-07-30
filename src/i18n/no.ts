@@ -50,7 +50,7 @@ export const no: Locale = {
         },
         // 1 – Confidential Client
         {
-          title: 'Løsningsarkitekt',
+          title: 'Senior Data Plattform utvikler / Plattformsarkitekt',
           bullets: [
             'Utformet on-premise Apache Spark-klyngearkitektur for en regulert forsvars- og sikkerhetskunde, med fokus på datasuverenitet og overholdelse av nasjonale sikkerhetspolicyer',
             'Bygget en sikker analyseplattform for behandling av sensitiv klassifisert data, med end-to-end-kryptering og rollebasert tilgangskontroll',
