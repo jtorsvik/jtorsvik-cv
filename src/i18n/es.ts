@@ -61,7 +61,7 @@ export const es: Locale = {
         },
         // 2 – Bane NOR
         {
-          title: 'Científico de Datos',
+          title: 'Científico de Datos / Científico de Datos Senior',
           bullets: [
             'Desarrolló pipelines de Deep Learning y Visión por Computadora para la inspección de infraestructuras ferroviarias, usando modelos de detección de objetos basados en YOLO',
             'Construyó flujos de trabajo de streaming en tiempo real (Azure Event Hubs) y procesamiento por lotes para datos operacionales y de sensores ferroviarios',

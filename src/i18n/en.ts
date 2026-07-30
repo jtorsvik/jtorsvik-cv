@@ -61,7 +61,7 @@ export const en: Locale = {
         },
         // 2 – Bane NOR
         {
-          title: 'Data Scientist',
+          title: 'Data Scientist / Senior Data Scientist',
           bullets: [
             'Engineered Deep Learning and Computer Vision pipelines for railway infrastructure inspection using YOLO-based object detection models',
             'Built real-time streaming (Azure Event Hubs) and batch processing workflows for sensor and operational railway data',
