@@ -35,7 +35,7 @@ export const no: Locale = {
   experiences: [
     // 0 – Sopra Steria
     {
-      role: 'Data Scientist-konsulent',
+      role: 'Manager Konsulent innen Data Science',
       engagements: [
         // 0 – SVV Saga
         {
